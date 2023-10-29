@@ -72,7 +72,8 @@ void Recharge() {
 }
 
 void PayBills() {
-    int a;
+    int a,b;
+    long long int c;
     printf("\n");
     printf("1. Electricity Bill Payment\n");
     printf("2. Water and Sewage Bill Payment\n");
@@ -82,13 +83,25 @@ void PayBills() {
     scanf("%d",&a);
     if(a==1)
     {
-        printf("1.Dasshin Gujarat Vij Company limited\n");
+        printf("1.Paschim Gujarat Vij Company limited\n");
         printf("2.Madhya Gujarat Vij Company limited\n");
-        printf("3.Paschim Gujarat Vij Company limited\n");
+        printf("3.Dasshin Gujarat Vij Company limited\n");
         printf("4.Uttar Gujarat Vij company limited\n");
         printf("5.Vaghani Energy limited\n");
         printf("-------------------------------\n");
         printf("Select your electricity board name : ");
+        scanf("%d",&b);
+    }
+    switch(b)
+    {
+        case 1: case 2: case 3: case 4: case 5: 
+            printf("Please enter your 5 or 11 digit Consumer Nmuber : ");
+            scanf("%lld",&c);
+            printf("PROCEED TO PAY");
+            break;
+            default:
+            printf("Wrong Input");
+        
     }
 }
 
