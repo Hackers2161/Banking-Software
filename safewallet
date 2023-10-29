@@ -39,10 +39,21 @@ int main() {
 }
 
 void Deposite() {
+    long long int i,j;
+    printf("Enter your Account Number : ");
+    scanf("%lld",&i);
+    printf("Confirm your Acoount Number : ");
+    scanf("%lld",&j);
     printf("Enter the Amount you want to Deposit: ");
     scanf("%d", &Amount);
+    if(i==j)
+    {
     TotalAmount = TotalAmount + Amount;
     printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Amount,TotalAmount);
+    }
+    else{
+        printf("Account Number and Confirm Account Number are not same");
+    }
 }
 
 void Withdraw() {
