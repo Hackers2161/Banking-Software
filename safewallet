@@ -1,13 +1,11 @@
 #include <stdio.h>
-
 int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
-
-void Deposite();
-void Withdraw();
-void Transfer();
-void Recharge();  // Function prototype declaration
-void PayBills();   // Function prototype declaration
+void Deposite();   // Function prototype
+void Withdraw();   // Function prototype
+void Transfer();   // Function prototype
+void Recharge();   // Function prototype
+void PayBills();   // Function prototype 
 void Exit();
 
 int main() {
@@ -47,10 +45,12 @@ void Deposite() {
 }
 
 void Withdraw() {
+    
     printf("Enter the Amount you wish to Withdraw: ");
     scanf("%d", &Withd);
     if (Withd <= TotalAmount) {
         TotalAmount = TotalAmount - Withd;
+        printf("A/c 3XXXXX6925 debited by Rs. %d Total Bal: Rs.  %d CR Clr Bal: Rs. %d CR. Never share OTP/Password for EMI postponement or any reason.-CBoI",Withd,TotalAmount,TotalAmount);
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
