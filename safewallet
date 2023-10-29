@@ -69,6 +69,13 @@ void Transfer() {
 void Recharge() {
     printf("Enter Mobile Number: ");
     scanf("%lli", &MN);
+    printf("\nSelect a Plan, e.g. 239 or 28 days\n");
+    printf("1. ₹19    Validity- 1 Days     Data- 1.5GB \n");
+    printf("2. ₹299   Validity- 28 Days    Data- 2GB/Day \n");
+    printf("3. ₹749   Validity- 90 Days    Data- 2GB/Day \n");
+    printf("4. ₹2999  Validity- 365 Days   Data- 2.5GB/Day \n");
+    
+    
 }
 
 void PayBills() {
