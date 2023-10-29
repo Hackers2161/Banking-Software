@@ -1,26 +1,38 @@
 #include <stdio.h>
 int Amount,TotalAmount = 100000,Withd,Trans;
-int list();        // function prototype 
+long long int MN;
+
+
 void Deposite();   // function prototype 
 void Withdraw();   // function prototype 
 void Transfer();   // function prototype 
-int list() 
-{
-    int a;
+void Recharge();   // function prototype 
+void PayBills();   // function prototype 
+void Exit();       // function prototype 
+
+
+int main() {
+    int n;
     printf("1. DEPOSITE AMOUNT  \n");
     printf("2. WITHDRAW AMOUNT \n");
     printf("3. TRANSFER AMOUNT  \n");
-    printf("4. RECHARGE & PAY BILLS \n");
-     printf("5. EXIT \n");
+    printf("4. RECHARGE \n");
+    printf("5. PAY BILLS \n");
+     printf("6. EXIT \n");
     printf("-----------------------\n");
     printf("Enter your choice number : ");
-    scanf("%d",&a);
-    return a;
-}
-int main() {
-   list();  // calling of list function
+    scanf("%d",&n);
+   
+   if(n==1)  Deposite();
+    else if(n==2)  Withdraw(); 
+    else if(n==3)  Transfer(); 
+    else if(n==4)  Recharge(); 
+    else if(n==5) PayBills(); 
+    else if(n==6)  Exit(); 
+    else { printf (" wrong input");}
     return 0;
 }
+
 void Deposite()
 {
     printf("Enter the Amount you want to Deposite : ");
@@ -49,5 +61,22 @@ void Transfer()
     else{
          printf("You do not have sufficient Balance in your Account ");
     }
+    void Recharge()
+{
+    printf("Enter Mobile Number : ");
+    scanf("%lli",&MN);
+}
+ void PayBills()
+{
+    printf("1. Electricity Bill Payment : ");
+    printf("2. Water and Sewage Bill Payment : ");
+    printf("3. Gas Cylinder Bill Payment: ");
+    
+}
+ void Exit()
+{
+    
+}
+
     
 }
