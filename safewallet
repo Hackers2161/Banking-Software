@@ -12,7 +12,7 @@ int main() {
     int n;
     printf("1. DEPOSIT AMOUNT\n");
     printf("2. WITHDRAW AMOUNT\n");
-    printf("3. TRANSFER AMOUNT\n");
+    printf("3. BANK TRANSFER\n");
     printf("4. RECHARGE\n");
     printf("5. PAY BILLS\n");
     printf("6. EXIT\n");
@@ -58,10 +58,44 @@ void Withdraw() {
 }
 
 void Transfer() {
-    printf("Enter the Amount you want to Transfer: ");
+    int e;
+    long long int f,g,h;
+        printf("Select Bank\n");
+        printf("1. State Bank of india (SBI)\n");
+        printf("2. ICIC Bank\n");
+        printf("3. Axis Bank\n");
+        printf("4. HDFC Bank\n");
+        printf("5. Union Bank of india\n");
+        printf("6. Central Bank of india\n");
+        printf("Enter your choice number : ");
+        scanf("%d",&e);
+        printf("\n Enter IFSC Code : ");
+        scanf("%lld",&f);
+         printf("\n Enter Acount Number : ");
+        scanf("%lld",&g);
+         printf("\n Confirm Acount Number : ");
+        scanf("%lld",&h);
+        if(g==h){
+         printf("Enter the Amount you want to Transfer: ");
     scanf("%d", &Trans);
+        }
+        else{
+            printf("Acount Number and Confirm Acount number are not same\n");
+        }
     if (Trans <= TotalAmount) {
         TotalAmount = TotalAmount - Trans;
+        switch(e){
+            
+            case 1: case 2: case 3: case 4: case 5: case 6:
+            if(g==h){
+             printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Trans,TotalAmount);
+            }
+             break;
+             default :
+             printf("Wrong input");
+            
+        }
+       
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
