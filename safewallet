@@ -50,7 +50,7 @@ void Withdraw() {
     scanf("%d", &Withd);
     if (Withd <= TotalAmount) {
         TotalAmount = TotalAmount - Withd;
-        printf("A/c 3XXXXX6925 debited by Rs. %d Total Bal: Rs.  %d CR Clr Bal: Rs. %d CR. Never share OTP/Password for EMI postponement or any reason.-CBoI",Withd,TotalAmount,TotalAmount);
+        printf("\n A/c 3XXXXX6925 debited by Rs. %d\n Total Bal: Rs. %d\n CR Clr Bal: Rs. %d CR.\n Never share OTP/Password for EMI postponement or any reason.-CBoI",Withd,TotalAmount,TotalAmount);
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
