@@ -1,0 +1,53 @@
+#include <stdio.h>
+int Amount,TotalAmount = 100000,Withd,Trans;
+int list();        // function prototype 
+void Deposite();   // function prototype 
+void Withdraw();   // function prototype 
+void Transfer();   // function prototype 
+int list() 
+{
+    int a;
+    printf("1. DEPOSITE AMOUNT  \n");
+    printf("2. WITHDRAW AMOUNT \n");
+    printf("3. TRANSFER AMOUNT  \n");
+    printf("4. RECHARGE & PAY BILLS \n");
+     printf("5. EXIT \n");
+    printf("-----------------------\n");
+    printf("Enter your choice number : ");
+    scanf("%d",&a);
+    return a;
+}
+int main() {
+   list();  // calling of list function
+    return 0;
+}
+void Deposite()
+{
+    printf("Enter the Amount you want to Deposite : ");
+    scanf("%d",&Amount);
+    TotalAmount = TotalAmount + Amount;
+}
+void Withdraw()
+{
+    printf("Enter the Amount you wish to Withdraw : ");
+    scanf("%d",&Withd);
+    if(Withd<=TotalAmount){
+        TotalAmount=TotalAmount-Withd;
+    }
+    else{
+        printf("You do not have sufficient Balance in your Account ");
+    }
+   
+}
+void Transfer()
+{
+    printf("Enter the Amount you want to Transfer : ");
+    scanf("%d",&Trans);
+    if(Trans<=TotalAmount){
+        TotalAmount=TotalAmount-Trans;
+    }
+    else{
+         printf("You do not have sufficient Balance in your Account ");
+    }
+    
+}
