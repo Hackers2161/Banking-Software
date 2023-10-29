@@ -1,82 +1,82 @@
 #include <stdio.h>
-int Amount,TotalAmount = 100000,Withd,Trans;
+
+int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
 
-
-void Deposite();   // function prototype 
-void Withdraw();   // function prototype 
-void Transfer();   // function prototype 
-void Recharge();   // function prototype 
-void PayBills();   // function prototype 
-void Exit();       // function prototype 
-
+void Deposite();
+void Withdraw();
+void Transfer();
+void Recharge();  // Function prototype declaration
+void PayBills();   // Function prototype declaration
+void Exit();
 
 int main() {
     int n;
-    printf("1. DEPOSITE AMOUNT  \n");
-    printf("2. WITHDRAW AMOUNT \n");
-    printf("3. TRANSFER AMOUNT  \n");
-    printf("4. RECHARGE \n");
-    printf("5. PAY BILLS \n");
-     printf("6. EXIT \n");
+    printf("1. DEPOSIT AMOUNT\n");
+    printf("2. WITHDRAW AMOUNT\n");
+    printf("3. TRANSFER AMOUNT\n");
+    printf("4. RECHARGE\n");
+    printf("5. PAY BILLS\n");
+    printf("6. EXIT\n");
     printf("-----------------------\n");
-    printf("Enter your choice number : ");
-    scanf("%d",&n);
-   
-   if(n==1)  Deposite();
-    else if(n==2)  Withdraw(); 
-    else if(n==3)  Transfer(); 
-    else if(n==4)  Recharge(); 
-    else if(n==5) PayBills(); 
-    else if(n==6)  Exit(); 
-    else { printf (" wrong input");}
+    printf("Enter your choice number: ");
+    scanf("%d", &n);
+
+    if (n == 1)
+        Deposite();
+    else if (n == 2)
+        Withdraw();
+    else if (n == 3)
+        Transfer();
+    else if (n == 4)
+        Recharge();
+    else if (n == 5)
+        PayBills();
+    else if (n == 6)
+        Exit();
+    else {
+        printf("Wrong input\n");
+    }
     return 0;
 }
 
-void Deposite()
-{
-    printf("Enter the Amount you want to Deposite : ");
-    scanf("%d",&Amount);
+void Deposite() {
+    printf("Enter the Amount you want to Deposit: ");
+    scanf("%d", &Amount);
     TotalAmount = TotalAmount + Amount;
 }
-void Withdraw()
-{
-    printf("Enter the Amount you wish to Withdraw : ");
-    scanf("%d",&Withd);
-    if(Withd<=TotalAmount){
-        TotalAmount=TotalAmount-Withd;
+
+void Withdraw() {
+    printf("Enter the Amount you wish to Withdraw: ");
+    scanf("%d", &Withd);
+    if (Withd <= TotalAmount) {
+        TotalAmount = TotalAmount - Withd;
+    } else {
+        printf("You do not have sufficient Balance in your Account\n");
     }
-    else{
-        printf("You do not have sufficient Balance in your Account ");
-    }
-   
-}
-void Transfer()
-{
-    printf("Enter the Amount you want to Transfer : ");
-    scanf("%d",&Trans);
-    if(Trans<=TotalAmount){
-        TotalAmount=TotalAmount-Trans;
-    }
-    else{
-         printf("You do not have sufficient Balance in your Account ");
-    }
-    void Recharge()
-{
-    printf("Enter Mobile Number : ");
-    scanf("%lli",&MN);
-}
- void PayBills()
-{
-    printf("1. Electricity Bill Payment : ");
-    printf("2. Water and Sewage Bill Payment : ");
-    printf("3. Gas Cylinder Bill Payment: ");
-    
-}
- void Exit()
-{
-    
 }
 
-    
+void Transfer() {
+    printf("Enter the Amount you want to Transfer: ");
+    scanf("%d", &Trans);
+    if (Trans <= TotalAmount) {
+        TotalAmount = TotalAmount - Trans;
+    } else {
+        printf("You do not have sufficient Balance in your Account\n");
+    }
+}
+
+void Recharge() {
+    printf("Enter Mobile Number: ");
+    scanf("%lli", &MN);
+}
+
+void PayBills() {
+    printf("1. Electricity Bill Payment\n");
+    printf("2. Water and Sewage Bill Payment\n");
+    printf("3. Gas Cylinder Bill Payment\n");
+}
+
+void Exit() {
+    // Add functionality for exiting the program if needed
 }
