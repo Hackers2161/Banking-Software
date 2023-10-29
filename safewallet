@@ -72,9 +72,24 @@ void Recharge() {
 }
 
 void PayBills() {
+    int a;
+    printf("\n");
     printf("1. Electricity Bill Payment\n");
     printf("2. Water and Sewage Bill Payment\n");
     printf("3. Gas Cylinder Bill Payment\n");
+    printf("------------------------------\n");
+    printf("enter your choice number : ");
+    scanf("%d",&a);
+    if(a==1)
+    {
+        printf("1.Dasshin Gujarat Vij Company limited\n");
+        printf("2.Madhya Gujarat Vij Company limited\n");
+        printf("3.Paschim Gujarat Vij Company limited\n");
+        printf("4.Uttar Gujarat Vij company limited\n");
+        printf("5.Vaghani Energy limited\n");
+        printf("-------------------------------\n");
+        printf("Select your electricity board name : ");
+    }
 }
 
 void Exit() {
