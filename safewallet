@@ -138,19 +138,19 @@ void Withdraw() {
     scanf("%s",str1);
     int x1=strlen(str1);
     if(x1==10){
-      int x2=strlen(str2);
+      
     printf("Confirm your 10 Digit Acoount Number : ");
     scanf("%s",str2);
-   
+    int x2=strlen(str2);
     if(x1==10){
         if(x2==10)
           {
              if(strcmp(str1,str2)==0)
         {
-    printf("Enter the Amount you want to Deposit: ");
+    printf("Enter the Amount you want to Withdraw: ");
     scanf("%d", &Amount);
-    TotalAmount = TotalAmount + Amount;
-    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Amount,TotalAmount);
+    TotalAmount = TotalAmount - Amount;
+    printf("A/c 3XXXXX6925 debited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Amount,TotalAmount);
     printf("-------------------------------------------------------------\n");
     main();
         }
@@ -190,9 +190,9 @@ void Withdraw2(){
           {
              if(strcmp(str1,str2)==0)
         {
-    printf("Enter the Amount you want to Deposit: ");
+    printf("Enter the Amount you want to Withdraw: ");
     scanf("%d", &Amount);
-    TotalAmount = TotalAmount + Amount;
+    TotalAmount = TotalAmount - Amount;
     printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Amount,TotalAmount);
     printf("-------------------------------------------------------------\n");
     main();
