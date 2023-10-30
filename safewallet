@@ -2,13 +2,18 @@
 int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
 void Deposite();   // Function prototype
-void Deposite2();   // Function prototype
+void Deposite2();  // Function prototype
 void Withdraw();   // Function prototype
+void Withdraw2();   // Function prototype
 void Transfer();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype 
-void Exit();
-
+void Exit();        // Function prototype
+void D1();        // Function prototype 
+void D1()
+{
+    
+}
 int main() {
     int n;
     printf("1. DEPOSITE AMOUNT\n");
@@ -61,7 +66,7 @@ void Deposite() {
 }
 void Deposite2() {
     long long int i,j;
-    printf("\nRe-Enter your Account Number : ");
+    printf("\nPlease Re-Enter your Account Number : ");
     scanf("%lld",&i);
     printf("Confirm your Acoount Number : ");
     scanf("%lld",&j);
@@ -82,17 +87,49 @@ void Deposite2() {
 }
 
 void Withdraw() {
-    
+    long long int i,j;
+    printf("Enter your Account Number : ");
+    scanf("%lld",&i);
+    printf("Confirm your Acoount Number : ");
+    scanf("%lld",&j);
+    if(i==j){
     printf("Enter the Amount you wish to Withdraw: ");
     scanf("%d", &Withd);
     if (Withd <= TotalAmount) {
         TotalAmount = TotalAmount - Withd;
-        printf("\nA/c 3XXXXX6925 debited by Rs. %d\nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Withd,TotalAmount);
+        printf("\nA/c 3XXXXX6925 debited by Rs. %d\nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Withd,TotalAmount);
+         printf("-------------------------------------------------------------\n");
+         main();
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
+    }
+    else{
+        printf("Account Number and Confirm Account Number are not same\n");
+     Withdraw2();   
+    }
 }
-
+void Withdraw2(){
+    long long int i,j;
+    printf("\nPlease Re-Enter your Account Number : ");
+    scanf("%lld",&i);
+    printf("Confirm your Acoount Number : ");
+    scanf("%lld",&j);
+    if(i==j)
+    {
+    printf("Enter the Amount you want to Withdraw: ");
+    scanf("%d", &Amount);
+    TotalAmount = TotalAmount - Amount;
+    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.",Amount,TotalAmount);
+       printf("-------------------------------------------------------------\n");
+        main();
+    }
+    
+    else{
+        printf("Account Number and Confirm Account Number are not same\n");
+        Withdraw2();
+    }
+}
 void Transfer() {
     int e;
     long long int f,g,h;
