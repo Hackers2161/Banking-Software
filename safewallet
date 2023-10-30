@@ -1,5 +1,5 @@
 #include <stdio.h>
-int Amount, TotalAmount = 1000000, Withd, Trans;
+int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
 void Deposite();   // Function prototype
 void Withdraw();   // Function prototype
@@ -8,7 +8,7 @@ void Recharge();   // Function prototype
 void PayBills();   // Function prototype 
 void Exit();
 
-int main() { 
+int main() {
     int n;
     printf("1. DEPOSIT AMOUNT\n");
     printf("2. WITHDRAW AMOUNT\n");
@@ -46,41 +46,30 @@ void Deposite() {
     scanf("%lld",&j);
     printf("Enter the Amount you want to Deposit: ");
     scanf("%d", &Amount);
-    
     if(i==j)
     {
     TotalAmount = TotalAmount + Amount;
     printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Amount,TotalAmount);
     }
     else{
-        printf("Account Number and Confirm Account Number are not same\n");
-        printf("please Re-Enter your Account Number : ");
-        scanf("%lld",&j);
+        printf("Account Number and Confirm Account Number are not same");
     }
 }
 
 void Withdraw() {
-    long long int k,l;
-    printf("Enter Your Account Number : ");
-    scanf("%lld",&k);
-    printf("Confirm Your Account Number : ");
-    scanf("%lld",&l);
+    
     printf("Enter the Amount you wish to Withdraw: ");
     scanf("%d", &Withd);
-    if(l==k){
     if (Withd <= TotalAmount) {
         TotalAmount = TotalAmount - Withd;
         printf("\nA/c 3XXXXX6925 debited by Rs. %d\nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Withd,TotalAmount);
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
-    }
-    else{
-       printf("Account Number and Confirm Account Number are not same");
-    }
 }
+
 void Transfer() {
-    int e,m;
+    int e;
     long long int f,g,h;
         printf("Select Bank\n");
         printf("1. State Bank of india (SBI)\n");
@@ -100,8 +89,6 @@ void Transfer() {
         if(g==h){
          printf("Enter the Amount you want to Transfer: ");
     scanf("%d", &Trans);
-    printf("Enter TPIN : ");
-    scanf("%d",&m);
         }
         else{
             printf("Acount Number and Confirm Acount number are not same\n");
@@ -112,17 +99,8 @@ void Transfer() {
             
             case 1: case 2: case 3: case 4: case 5: case 6:
             if(g==h){
-                if(m==1234){
              printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Trans,TotalAmount);
             }
-            else{
-                printf("INVALID TPIN ");
-            }
-            }
-            else{
-                printf("Your Account Number and Confirm Account Number does not match");
-            }
-            
              break;
              default :
              printf("Wrong input");
@@ -190,5 +168,5 @@ void PayBills() {
 }
 
 void Exit() {
-    // Add functionality for exiting the program if needed
+    printf("Thank You for Visiting");
 }
