@@ -46,9 +46,12 @@ void Deposite() {
     int str1[10],str2[10];
     printf("Enter your Account Number : ");
     scanf("%s",str1);
+    int x1=strlen(str1);
+    if(x1==10){
+      int x2=strlen(str2);
     printf("Confirm your Acoount Number : ");
     scanf("%s",str2);
-   int x1=strlen(str1), x2=strlen(str2);
+   
     if(x1==10){
         if(x2==10)
           {
@@ -75,7 +78,11 @@ void Deposite() {
      printf("Please Enter a Valid 10 digit Confirm Account Number");
       Deposite2();    
     }
-  
+    }
+    else{
+       printf("Please Enter a Valid 10 digit Account Number");
+      Deposite2();    
+    }
    
 }
 void Deposite2() {
