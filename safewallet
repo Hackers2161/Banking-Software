@@ -1,13 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 int Amount, TotalAmount = 100000, Withd, Trans;
+int str1[20];str2[20];
 long long int MN;
 void Deposite();   // Function prototype
-void Deposite2();  // Function prototype
 void Withdraw();   // Function prototype
-void Withdraw2();   // Function prototype
 void Transfer();   // Function prototype
-void Transfer2();   // Function prototype
-void Transfer3();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype 
 void Exit();        // Function prototype
@@ -45,24 +43,40 @@ int main() {
 }
 
 void Deposite() {
-    long long int i,j;
+    int str1[10],str2[10];
     printf("Enter your Account Number : ");
-    scanf("%lld",&i);
+    scanf("%s",str1);
     printf("Confirm your Acoount Number : ");
-    scanf("%lld",&j);
-    if(i==j)
-    {
+    scanf("%s",str2);
+   int x1=strlen(str1), x2=strlen(str2);
+    if(x1==10){
+        if(x2==10)
+          {
+             if(strcmp(str1,str2)==0)
+        {
     printf("Enter the Amount you want to Deposit: ");
     scanf("%d", &Amount);
     TotalAmount = TotalAmount + Amount;
     printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Amount,TotalAmount);
     printf("-------------------------------------------------------------\n");
     main();
-    }
-    else{
+        }
+         else{
         printf("Account Number and Confirm Account Number are not same\n");
         Deposite2();
+              }
     }
+  else{
+      printf("Please Enter a Valid 10 digit Confirm Account Number");
+      Deposite2();
+      }
+    }
+    else{
+     printf("Please Enter a Valid 10 digit Confirm Account Number");
+      Deposite2();    
+    }
+  
+   
 }
 void Deposite2() {
     long long int i,j;
@@ -255,7 +269,10 @@ void PayBills() {
         
     }
 }
-
+void Deposite2();  // Function prototype
+void Withdraw2();   // Function prototype
+void Transfer2();   // Function prototype
+void Transfer3();   // Function prototype
 void Exit() {
     printf("Thank You for Visiting");
 }
