@@ -38,18 +38,21 @@ int main() {
         Exit();
     else {
         printf("Wrong input\n");
+        printf("Please Enter a Valid Choice number\n");
+        printf("--------------------------------------\n");
+        main();
     }
     return 0;
 }
 
 void Deposite() {
     int str1[10],str2[10];
-    printf("Enter your Account Number : ");
+    printf("Enter your 10 Digit Account Number : ");
     scanf("%s",str1);
     int x1=strlen(str1);
     if(x1==10){
       int x2=strlen(str2);
-    printf("Confirm your Acoount Number : ");
+    printf("Confirm your 10 Digit Acoount Number : ");
     scanf("%s",str2);
    
     if(x1==10){
