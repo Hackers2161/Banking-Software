@@ -6,14 +6,14 @@ void Deposite2();  // Function prototype
 void Withdraw();   // Function prototype
 void Withdraw2();   // Function prototype
 void Transfer();   // Function prototype
+void Transfer2();   // Function prototype
+void Transfer3();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype 
 void Exit();        // Function prototype
-void D1();        // Function prototype 
-void D1()
-{
+
     
-}
+
 int main() {
     int n;
     printf("1. DEPOSITE AMOUNT\n");
@@ -131,7 +131,7 @@ void Withdraw2(){
     }
 }
 void Transfer() {
-    int e;
+    int e,k;
     long long int f,g,h;
         printf("Select Bank\n");
         printf("1. State Bank of india (SBI)\n");
@@ -151,17 +151,20 @@ void Transfer() {
         if(g==h){
          printf("Enter the Amount you want to Transfer: ");
     scanf("%d", &Trans);
+    printf("Enter Your TPIN : ");
+    scanf("%d",&k);
         }
         else{
             printf("Acount Number and Confirm Acount number are not same\n");
         }
+        if(k==1234){
     if (Trans <= TotalAmount) {
         TotalAmount = TotalAmount - Trans;
         switch(e){
             
             case 1: case 2: case 3: case 4: case 5: case 6:
             if(g==h){
-             printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Trans,TotalAmount);
+             printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.",Trans,TotalAmount);
             }
              break;
              default :
@@ -172,7 +175,31 @@ void Transfer() {
     } else {
         printf("You do not have sufficient Balance in your Account\n");
     }
+        }
+        else{
+            printf("INVALID TPIN\n");
+            Transfer2();
+        }
 }
+void Transfer2(){
+    int k,g,h;
+    printf("Re-Enter Your TPIN : ");
+    scanf("%d",&k);
+if(k==1234){
+    if (Trans <= TotalAmount) {
+        TotalAmount = TotalAmount - Trans;
+         printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.",Trans,TotalAmount);}
+         else{
+             printf("You do not have sufficient Balance in your Account\n"); 
+         }
+}
+else{
+    printf("INVALID TPIN\n");
+    Transfer2();
+}
+    }
+   
+
 
 void Recharge() {
     int d;
