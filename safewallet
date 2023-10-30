@@ -2,6 +2,7 @@
 int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
 void Deposite();   // Function prototype
+void Deposite2();   // Function prototype
 void Withdraw();   // Function prototype
 void Transfer();   // Function prototype
 void Recharge();   // Function prototype
@@ -10,7 +11,7 @@ void Exit();
 
 int main() {
     int n;
-    printf("1. DEPOSIT AMOUNT\n");
+    printf("1. DEPOSITE AMOUNT\n");
     printf("2. WITHDRAW AMOUNT\n");
     printf("3. BANK TRANSFER\n");
     printf("4. RECHARGE\n");
@@ -44,15 +45,39 @@ void Deposite() {
     scanf("%lld",&i);
     printf("Confirm your Acoount Number : ");
     scanf("%lld",&j);
-    printf("Enter the Amount you want to Deposit: ");
-    scanf("%d", &Amount);
     if(i==j)
     {
+    printf("Enter the Amount you want to Deposit: ");
+    scanf("%d", &Amount);
     TotalAmount = TotalAmount + Amount;
-    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.-CBoI",Amount,TotalAmount);
+    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n",Amount,TotalAmount);
+    printf("-------------------------------------------------------------\n");
+    main();
     }
     else{
-        printf("Account Number and Confirm Account Number are not same");
+        printf("Account Number and Confirm Account Number are not same\n");
+        Deposite2();
+    }
+}
+void Deposite2() {
+    long long int i,j;
+    printf("\nRe-Enter your Account Number : ");
+    scanf("%lld",&i);
+    printf("Confirm your Acoount Number : ");
+    scanf("%lld",&j);
+    if(i==j)
+    {
+    printf("Enter the Amount you want to Deposit: ");
+    scanf("%d", &Amount);
+    TotalAmount = TotalAmount + Amount;
+    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.",Amount,TotalAmount);
+       printf("-------------------------------------------------------------\n");
+        main();
+    }
+    
+    else{
+        printf("Account Number and Confirm Account Number are not same\n");
+        Deposite2();
     }
 }
 
