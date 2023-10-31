@@ -136,7 +136,7 @@ void Withdraw() {
 
         if (x1 == 10) {
             if (x2 == 10) {
-                if (strcmp(str1, str2) == 0) {
+                if (strcmp(str1, str2) != 0) {
                     printf("Enter the Amount you want to Withdraw: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount - Amount;
