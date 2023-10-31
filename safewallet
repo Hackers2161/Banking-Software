@@ -268,8 +268,11 @@ void Transfer2() {
 
 void Recharge() {
     int d;
+    char str3[10];
     printf("Enter Mobile Number: ");
-    scanf("%lli", &MN);
+    scanf("%s", str3);
+    int x3=strlen(str3);
+    if(x3==10){
     printf("\nSelect a Plan, e.g. 239 or 28 days\n");
     printf("1. ₹19    Validity- 1 Days     Data- 1.5GB\n");
     printf("2. ₹299   Validity- 28 Days    Data- 2GB/Day\n");
@@ -283,6 +286,11 @@ void Recharge() {
         case 1: case 2: case 3: case 4: case 5:
             printf("PROCEED TO PAY\n");
             break;
+    }
+    }
+    else{
+        printf("Please Enter a valid Mobile Number\n");
+        Recharge();
     }
 }
 
