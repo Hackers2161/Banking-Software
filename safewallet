@@ -279,13 +279,17 @@ void Recharge() {
     printf("3. ₹749   Validity- 90 Days    Data- 2GB/Day\n");
     printf("4. ₹808   Validity- 84 Days    Data- 3GB/Day\n");
     printf("5. ₹2999  Validity- 365 Days   Data- 2.5GB/Day\n");
-    printf("\n Enter your choice: ");
+    printf("\nEnter your choice: ");
     scanf("%d", &d);
 
     switch (d) {
         case 1: case 2: case 3: case 4: case 5:
             printf("PROCEED TO PAY\n");
             break;
+            default :
+            printf("Wrong Input\n");
+            printf("Please Select a Valid Plan Number\n");
+            Recharge2();
     }
     }
     else{
@@ -293,7 +297,21 @@ void Recharge() {
         Recharge();
     }
 }
-
+void Recharge2();   // function declaration
+void Recharge2(){
+    int n;
+    printf("Please Re-Enter your choice Number : ");
+    scanf("%d",&n);
+    switch (n) {
+        case 1: case 2: case 3: case 4: case 5:
+            printf("PROCEED TO PAY\n");
+            break;
+            default :
+            printf("Wrong Input\n");
+            Recharge2();
+    }
+            
+}
 void PayBills() {
     int a, b;
     long long int c;
