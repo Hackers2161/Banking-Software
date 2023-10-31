@@ -188,7 +188,7 @@ void Withdraw2() {
                 }
             } else {
                 printf("Please Enter a Valid 10 digit Confirm Account Number");
-                Withdraw();
+                Withdraw2();
             }
         } else {
             printf("Please Enter a Valid 10 digit Confirm Account Number");
