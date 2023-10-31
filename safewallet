@@ -148,11 +148,11 @@ void Withdraw() {
                     Withdraw2();
                 }
             } else {
-                printf("Please Enter a Valid 10 digit Confirm Account Number");
+                printf("Please Enter a Valid 10 digit Confirm Account Number\n");
                 Withdraw2();
             }
         } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number");
+            printf("Please Enter a Valid 10 digit Confirm Account Number\n");
             Withdraw2();
         }
     } else {
@@ -174,7 +174,7 @@ void Withdraw2() {
 
         if (x1 == 10) {
             if (x2 == 10) {
-                if (strcmp(str1, str2) == 0) {
+                if (strcmp(str1, str2) != 0) {
                     printf("Enter the Amount you want to Withdraw: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount - Amount;
