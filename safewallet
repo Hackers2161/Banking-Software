@@ -39,8 +39,6 @@ int main() {
     }
     return 0;
 }
-void Deposite2();  // Function prototype
-void Withdraw2();   // Function prototype
 void Transfer2();   // Function prototype
 void Transfer3();   // Function prototype
 void Recharge2();   // function declaration
@@ -65,54 +63,19 @@ void Deposite() {
                     main();
                 } else {
                     printf("Account Number and Confirm Account Number are not the same\n");
-                    Deposite2();
+                    Deposite();
                 }
             } else {
-                printf("Please Enter a Valid 10 digit Confirm Account Number");
-                Deposite2();
+                printf("Please Enter a Valid 10 digit Confirm Account Number\n");
+                Deposite();
             }
         } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number");
-            Deposite2();
+            printf("Please Enter a Valid 10 digit Confirm Account Number\n");
+            Deposite();
         }
     } else {
-        printf("Please Enter a Valid 10 digit Account Number");
-        Deposite2();
-    }
-}
-void Deposite2() {
-    char str1[10], str2[10];
-    printf("\nPlease Re-Enter your 10 Digit Account Number: ");
-    scanf("%s", str1);
-    int x1 = strlen(str1);
-    if (x1 == 10) {
-        printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", str2);
-        int x2 = strlen(str2);
-        if (x1 == 10) {
-            if (x2 == 10) {
-                if (strcmp(str1, str2) != 0) {
-                    printf("Enter the Amount you want to Deposit: ");
-                    scanf("%d", &Amount);
-                    TotalAmount = TotalAmount + Amount;
-                    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n", Amount, TotalAmount);
-                    printf("-------------------------------------------------------------\n");
-                    main();
-                } else {
-                    printf("Account Number and Confirm Account Number are not the same\n");
-                    Deposite2();
-                }
-            } else {
-                printf("Please Enter a Valid 10 digit Confirm Account Number");
-                Deposite2();
-            }
-        } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number");
-            Deposite2();
-        }
-    } else {
-        printf("Please Enter a Valid 10 digit Account Number");
-        Deposite2();
+        printf("Please Enter a Valid 10 digit Account Number\n");
+        Deposite();
     }
 }
 
@@ -138,60 +101,21 @@ void Withdraw() {
                     main();
                 } else {
                     printf("Account Number and Confirm Account Number are not the same\n");
-                    Withdraw2();
-                }
-            } else {
-                printf("Please Enter a Valid 10 digit Confirm Account Number\n");
-                Withdraw2();
-            }
-        } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number\n");
-            Withdraw2();
-        }
-    } else {
-        printf("Please Enter a Valid 10 digit Account Number");
-        Withdraw2();
-    }
-}
-
-void Withdraw2() {
-    char str1[10], str2[10];
-    printf("\nPlease Re-Enter your 10 Digit Account Number: ");
-    scanf("%s", str1);
-    int x1 = strlen(str1);
-
-    if (x1 == 10) {
-        printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", str2);
-        int x2 = strlen(str2);
-
-        if (x1 == 10) {
-            if (x2 == 10) {
-                if (strcmp(str1, str2) != 0) {
-                    printf("Enter the Amount you want to Withdraw: ");
-                    scanf("%d", &Amount);
-                    TotalAmount = TotalAmount - Amount;
-                    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n", Amount, TotalAmount);
-                    printf("-------------------------------------------------------------\n");
-                    main();
-                } else {
-                    printf("Account Number and Confirm Account Number are not the same\n");
                     Withdraw();
                 }
             } else {
-                printf("Please Enter a Valid 10 digit Confirm Account Number");
-                Withdraw2();
+                printf("Please Enter a Valid 10 digit Confirm Account Number\n");
+                Withdraw();
             }
         } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number");
+            printf("Please Enter a Valid 10 digit Confirm Account Number\n");
             Withdraw();
         }
     } else {
-        printf("Please Enter a Valid 10 digit Account Number");
+        printf("Please Enter a Valid 10 digit Account Number\n");
         Withdraw();
     }
 }
-
 void Transfer() {
     int e, k;
     long long int f;
