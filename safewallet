@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <string.h>
-
 int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
-
 void Deposite();   // Function prototype
 void Withdraw();   // Function prototype
 void Transfer();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
 void Exit();        // Function prototype
-
 int main() {
     int n;
     printf("1. DEPOSIT AMOUNT\n");
@@ -22,7 +19,6 @@ int main() {
     printf("-----------------------\n");
     printf("Enter your choice number: ");
     scanf("%d", &n);
-
     if (n == 1)
         Deposite();
     else if (n == 2)
@@ -54,7 +50,6 @@ void Deposite() {
     printf("Enter your 10 Digit Account Number: ");
     scanf("%s", str1);
     int x1 = strlen(str1);
-
     if (x1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
         scanf("%s", str2);
@@ -85,18 +80,15 @@ void Deposite() {
         Deposite2();
     }
 }
-
 void Deposite2() {
     char str1[10], str2[10];
     printf("\nPlease Re-Enter your 10 Digit Account Number: ");
     scanf("%s", str1);
     int x1 = strlen(str1);
-
     if (x1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
         scanf("%s", str2);
         int x2 = strlen(str2);
-
         if (x1 == 10) {
             if (x2 == 10) {
                 if (strcmp(str1, str2) != 0) {
@@ -416,7 +408,6 @@ void PayBills() {
         printf("Select your electricity board name: ");
         scanf("%d", &b);
     }
-
     switch (b) {
         case 1: case 2: case 3: case 4: case 5:
             printf("Please enter your 5 or 11 digit Consumer Number: ");
@@ -427,9 +418,6 @@ void PayBills() {
             printf("Wrong Input");
     }
 }
-
-
-
 void Exit() {
     printf("Thank You for Visiting");
 }
