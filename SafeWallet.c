@@ -2,7 +2,7 @@
 #include <string.h>
 int Amount, TotalAmount = 100000, Withd, Trans;
 long long int MN;
-void Deposite();   // Function prototype
+void Deposit();   // Function prototype
 void Withdraw();   // Function prototype
 void Transfer();   // Function prototype
 void Recharge();   // Function prototype
@@ -43,7 +43,7 @@ void Transfer2();   // Function prototype
 void Transfer3();   // Function prototype
 void Recharge2();   // function declaration
 void Recharge3();   // function declaration
-void Deposite() {
+void Deposit() {
     int Amount, TotalAmount;
     char str1[11], str2[11],str3[100];
     printf("Enter your 10 Digit Account Number: ");
@@ -65,16 +65,16 @@ void Deposite() {
                     main();
                 } else {
                     printf("Account Number and Confirm Account Number are not the same\n");
-                    Deposite();
+                    Deposit();
                 }
             } else {
                 printf("Please Enter a Valid 10 digit Confirm Account Number\n");
-                Deposite();
+                Deposit();
             }
        
     } else {
         printf("Please Enter a Valid 10 digit Account Number\n");
-        Deposite();
+        Deposit();
     }
 }
 
