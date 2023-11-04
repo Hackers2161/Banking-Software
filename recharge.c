@@ -31,7 +31,7 @@ void Recharge() {
         Recharge();
     }
 }
-void Recharge2(){
+void paymentMethodSelection(){
     int reEnterChoice, paymentMethod;
     printf("Please Re-Enter your choice Number : ");
     scanf("%d",&reEnterChoice);
@@ -58,11 +58,11 @@ void Recharge2(){
             break;
             default :
             printf("Wrong Input\n");
-            Recharge2();
+            paymentMethodSelection();
     }
             
 }
-void Recharge3(){
+void invalidChoiceNumber(){
     int reEnterChoiceNumberAgain;
      printf("Please Re-Enter your choice Number : ");
      scanf("%d",&reEnterChoiceNumberAgain);
@@ -72,7 +72,7 @@ void Recharge3(){
                 break;
                 default :
                 printf("Wrong Input\n");
-                Recharge3();
+                invalidChoiceNumber();
      }
 }
 void PayBills() {
