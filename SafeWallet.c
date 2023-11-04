@@ -45,7 +45,7 @@ void Recharge2();   // function declaration
 void Recharge3();   // function declaration
 void Deposite() {
     int Amount, TotalAmount;
-    char str1[10], str2[10],str3[100];
+    char str1[11], str2[11],str3[100];
     printf("Enter your 10 Digit Account Number: ");
     scanf(" %[^\n]", str1);
     int x1 = strlen(str1);
