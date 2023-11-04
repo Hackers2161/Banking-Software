@@ -43,15 +43,15 @@ void Transfer() {
         }
     } else {
         printf("INVALID TPIN\n");
-        Transfer2();
+        invalidTpin();
     }
     }
     else{
         printf("Please Enter a valid Account Number\n");
-        Transfer3();
+        invalidAccountNumber();
     }
 }
-void Transfer3(){
+void invalidAccountNumber(){
     char accountNumber[10], confirmAccountNumber[10];
     int Amount, tpin;
     printf("Please Re-Enter your  10 Digit Account Number : ");
@@ -79,21 +79,21 @@ void Transfer3(){
         }
      else{
         printf("INCORRECT TPIN\n");
-         Transfer2();
+         invalidTpin();
          }
          }
      else{
       printf("Please Enter a Valid 10 Digit Confirm Account Number\n");
-      Transfer3();
+      invalidAccountNumber();
      }
      }
      else{
          printf("Please Enter a Valid 10 Digit Account Number\n");
-         Transfer3();
+         invalidAccountNumber();
      }
          
 }
-void Transfer2() {
+void invalidTpin() {
     int tpin, g, h;
     printf("Re-Enter Your TPIN: ");
     scanf("%d", &tpin);
@@ -106,6 +106,6 @@ void Transfer2() {
         }
     } else {
         printf("INVALID TPIN\n");
-        Transfer2();
+        invalidTpin();
     }
 }
