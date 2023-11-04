@@ -44,19 +44,19 @@ void Transfer3();   // Function prototype
 void Recharge2();   // function declaration
 void Recharge3();   // function declaration
 void Deposite() {
+    int Amount, TotalAmount;
     char str1[10], str2[10],str3[100];
     printf("Enter your 10 Digit Account Number: ");
-    scanf("%s", str1);
+    scanf(" %[^\n]", str1);
     int x1 = strlen(str1);
     if (x1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", str2);
+         scanf(" %[^\n]", str2);
         int x2 = strlen(str2);
-        printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]",str3);
-        if (x1 == 10) {
             if (x2 == 10) {
-                if (strcmp(str1,str2) != 0) {
+                if (strcmp(str1,str2) == 0) {
+                    printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",str3);
                     printf("Enter the Amount you want to Deposit: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount + Amount;
@@ -71,10 +71,7 @@ void Deposite() {
                 printf("Please Enter a Valid 10 digit Confirm Account Number\n");
                 Deposite();
             }
-        } else {
-            printf("Please Enter a Valid 10 digit Confirm Account Number\n");
-            Deposite();
-        }
+       
     } else {
         printf("Please Enter a Valid 10 digit Account Number\n");
         Deposite();
