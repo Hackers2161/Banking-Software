@@ -1,6 +1,5 @@
 void Deposit() {
-    char accountNumber[10], confirmAccountNumber[10], holderName[100];
-    int len1, len2;
+    char accountNumber[11], confirmAccountNumber[11], holderName[100];
     printf("Enter your 10 Digit Account Number: ");
     scanf("%s", accountNumber);
     int len1 = strlen(accountNumber);
@@ -8,11 +7,12 @@ void Deposit() {
         printf("Confirm your 10 Digit Account Number: ");
         scanf("%s", confirmAccountNumber);
         int len2 = strlen(confirmAccountNumber);
-        printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]", holderName);
+       
         if (len1 == 10) {
             if (len2 == 10) {
-                if (strcmp(accountNumber, confirmAccountNumber) != 0) {
+                if (strcmp(accountNumber, confirmAccountNumber) == 0) {
+                     printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]", holderName);
                     printf("Enter the Amount you want to Deposit: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount + Amount;
