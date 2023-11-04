@@ -23,7 +23,7 @@ void Recharge() {
             default :
             printf("Wrong Input\n");
             printf("Please Select a Valid Plan Number\n");
-            Recharge2();
+            paymentMethodSelection();
     }
     }
     else{
@@ -52,7 +52,7 @@ void paymentMethodSelection(){
                 break;
                 default :
                 printf("Wrong Input\n");
-                Recharge3();
+                invalidChoiceNumber();
             }
             
             break;
