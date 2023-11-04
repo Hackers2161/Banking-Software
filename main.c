@@ -39,3 +39,7 @@ int main() {
     }
     return 0;
 }
+
+void Exit() {
+    printf("Thank You for Visiting");
+}
