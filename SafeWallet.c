@@ -20,7 +20,7 @@ int main() {
     printf("Enter your choice number: ");
     scanf("%d", &n);
     if (n == 1)
-        Deposite();
+        Deposit();
     else if (n == 2)
         Withdraw();
     else if (n == 3)
@@ -79,7 +79,7 @@ void Deposit() {
 }
 
 void Withdraw() {
-    char str1[10], str2[10];
+    char str1[11], str2[11], str3[100];
     printf("Enter your 10 Digit Account Number: ");
     scanf("%s", str1);
     int x1 = strlen(str1);
@@ -91,7 +91,9 @@ void Withdraw() {
 
         if (x1 == 10) {
             if (x2 == 10) {
-                if (strcmp(str1, str2) != 0) {
+                if (strcmp(str1, str2) == 0) {
+                       printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",str3);
                     printf("Enter the Amount you want to Withdraw: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount - Amount;
@@ -118,7 +120,7 @@ void Withdraw() {
 void Transfer() {
     int e, k;
     long long int f;
-    char str1[10],str2[10];
+    char str1[12],str2[12];
     printf("Select Bank\n");
     printf("1. State Bank of India (SBI)\n");
     printf("2. ICICI Bank\n");
@@ -130,45 +132,59 @@ void Transfer() {
     scanf("%d", &e);
     printf("\n Enter IFSC Code: ");
     scanf("%lld", &f);
-    printf("\n Enter Account Number: ");
-    scanf("%s", str1);
-    int x1 = strlen(str1);
-    if(x1==10){
-    
-
-    if (strcmp(str1,str2)!=0) {
-        printf("Enter the Amount you want to Transfer: ");
+    printf("\n Enter your 10 Digit Account Number : ");
+scanf(" %[^\n]",str1);
+int x1=strlen(str1);
+if(x1==10){
+    printf("Confirm Your 10 Digit Account Number : ");
+   scanf(" %[^\n]",str2);
+    int x2=strlen(str2);
+    if(x2==0){
+        if(strcmp(str1,str2)==0){
+             printf("Enter the Amount you want to Transfer: ");
         scanf("%d", &Trans);
         printf("Enter Your TPIN: ");
-        scanf("%d", &k);
-    } else {
-        printf("Account Number and Confirm Account Number are not the same\n");
-    }
-
-    if (k == 1234) {
-        if (Trans <= TotalAmount) {
-            TotalAmount = TotalAmount - Trans;
-            switch (e) {
-                case 1: case 2: case 3: case 4: case 5: case 6:
-                    if (strcmp(str1,str2)!=0) {
-                        printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.", Trans, TotalAmount);
-                    }
-                    break;
-                default:
-                    printf("Wrong input");
-            }
-        } else {
-            printf("You do not have sufficient Balance in your Account\n");
+        scanf("%d",&k);
         }
-    } else {
-        printf("INVALID TPIN\n");
-        Transfer2();
+        else{
+            printf("Account Number and Confirm Account Number are not the same\n");
+            Transfer3();
+        }
+    }
+    else{
+      printf("Please Enter a Valid 10 Digit Confirm Account Number\n"); 
+      Transfer3();
+    }
+}
+else{
+    printf("Please Enter a Valid 10 Digit Account Number\n");
+    Transfer3();
+}
+if(k==1234){
+    if(Trans<=TotalAmount){
+       TotalAmount = TotalAmount - Trans;
+       switch(e){
+            case 1: case 2: case 3: case 4: case 5: case 6:
+            printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.", Trans, TotalAmount);
+       
+       break;
+       default:
+       printf("Wrong Input");
     }
     }
     else{
-        printf("Please Enter a valid Account Number\n");
-        Transfer3();
+        printf("You do not have sufficient Balance in your Account\n");
     }
+   
+}
+else{
+    printf("INVALID TPIN\n");
+        Transfer2();
+}
+
+    
+    
+    
 }
 void Transfer3(){
     char str1[10],str2[10];
