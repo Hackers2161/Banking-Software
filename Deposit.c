@@ -1,14 +1,14 @@
 void Deposit() {
     char accountNumber[11], confirmAccountNumber[11], holderName[100];
     printf("Enter your 10 Digit Account Number: ");
-    scanf("%s", accountNumber);
+    scanf(" %[^\n]", accountNumber);
     int len1 = strlen(accountNumber);
     if (len1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", confirmAccountNumber);
+        scanf(" %[^\n]", confirmAccountNumber);
         int len2 = strlen(confirmAccountNumber);
        
-        if (len1 == 10) {
+       
             if (len2 == 10) {
                 if (strcmp(accountNumber, confirmAccountNumber) == 0) {
                      printf("Enter Account Holder Name : ");
@@ -31,8 +31,4 @@ void Deposit() {
             printf("Please Enter a Valid 10 digit Confirm Account Number\n");
             Deposit();
         }
-    } else {
-        printf("Please Enter a Valid 10 digit Account Number\n");
-        Deposit();
-    }
 }
