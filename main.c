@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-int Amount, TotalAmount = 100000, Withd, Trans;
-long long int MN;
+long long int Depos, TotalAmount = 10000000, Withd,Trans;
+char AccountNumber[11], ConfirmAccountNumber[11],HolderName[100], MobileNumber[11];
+int b,c;
 void Deposit();   // Function prototype
 void Withdraw();   // Function prototype
-void Transfer();   // Function prototype
+void Transfer1();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
 void Exit();        // Function prototype
 int main() {
-    int n;
+    int a;
     printf("1. DEPOSIT AMOUNT\n");
     printf("2. WITHDRAW AMOUNT\n");
     printf("3. BANK TRANSFER\n");
@@ -18,18 +19,18 @@ int main() {
     printf("6. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
-    scanf("%d", &n);
-    if (n == 1)
-        Deposite();
-    else if (n == 2)
+    scanf("%d", &a);
+    if (a == 1)
+        Deposit();
+    else if (a == 2)
         Withdraw();
-    else if (n == 3)
-        Transfer();
-    else if (n == 4)
+    else if (a == 3)
+        Transfer1();
+    else if (a == 4)
         Recharge();
-    else if (n == 5)
+    else if (a == 5)
         PayBills();
-    else if (n == 6)
+    else if (a == 6)
         Exit();
     else {
         printf("Wrong input\n");
@@ -38,8 +39,4 @@ int main() {
         main();
     }
     return 0;
-}
-
-void Exit() {
-    printf("Thank You for Visiting");
 }
