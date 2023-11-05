@@ -1,23 +1,20 @@
 void Withdraw() {
-    char accountNumber[11], ConfirmAccountNumber[11],holderName[100];
     printf("Enter your 10 Digit Account Number: ");
-    scanf("%s", accountNumber);
-    int len1 = strlen(accountNumber);
+    scanf(" %[^\n]",AccountNumber);
+    int len1 = strlen(AccountNumber);
 
     if (len1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s",confirmAccountNumber);
-        int len2 = strlen(confirmAccountNumber);
-
-        if (len1 == 10) {
+        scanf(" %[^\n]",ConfirmAccountNumber);
+        int len2 = strlen(ConfirmAccountNumber);
             if (len2 == 10) {
-                if (strcmp(accountNumber,ConfirmAccountNumber) == 0) {
+                if (strcmp(AccountNumber,ConfirmAccountNumber) == 0) {
                        printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]",holderName);
+        scanf(" %[^\n]",HolderName);
                     printf("Enter the Amount you want to Withdraw: ");
-                    scanf("%d", &Amount);
-                    TotalAmount = TotalAmount - Amount;
-                    printf("A/c 3XXXXX6925 debited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n", Amount, TotalAmount);
+                    scanf("%lld", &Withd);
+                    TotalAmount = TotalAmount - Withd;
+                    printf("A/c 3XXXXX6925 debited by Rs. %lld \nTotal Bal: Rs. %lld\nNever share OTP/Password for EMI postponement or any reason.\n", Withd, TotalAmount);
                     printf("-------------------------------------------------------------\n");
                     main();
                 } else {
@@ -32,8 +29,4 @@ void Withdraw() {
             printf("Please Enter a Valid 10 digit Confirm Account Number\n");
             Withdraw();
         }
-    } else {
-        printf("Please Enter a Valid 10 digit Account Number\n");
-        Withdraw();
-    }
 }
