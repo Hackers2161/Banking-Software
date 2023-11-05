@@ -1,7 +1,5 @@
-void Transfer() {
-    int optionSelected, tpin;
-    long long int isfc;
-    char accountNumber[10], confirmAccountNumber[10];
+void Transfer1() {
+    
     printf("Select Bank\n");
     printf("1. State Bank of India (SBI)\n");
     printf("2. ICICI Bank\n");
@@ -9,103 +7,88 @@ void Transfer() {
     printf("4. HDFC Bank\n");
     printf("5. Union Bank of India\n");
     printf("6. Central Bank of India\n");
-    printf("Enter your choice number: ");
-    scanf("%d", &option);
-    printf("\n Enter IFSC Code: ");
-    scanf("%lld", &isfc);
-    printf("\n Enter Account Number: ");
-    scanf("%s", accountNumber);
-    int len1 = strlen(accountNumber);
-    if(len1==10){
-    
-    if (strcmp(accountNumber, confirmAccountNumber)!=0) {
-        printf("Enter the Amount you want to Transfer: ");
-        scanf("%d", &Trans);
-        printf("Enter Your TPIN: ");
-        scanf("%d", &tpin);
-    } else {
-        printf("Account Number and Confirm Account Number are not the same\n");
-    }
-    if (tpin == 1234) {
-        if (Trans <= TotalAmount) {
-            TotalAmount = TotalAmount - Trans;
-            switch (optionSelected) {
-                case 1: case 2: case 3: case 4: case 5: case 6:
-                    if (strcmp(accountNumber, confirmAccountNumber)!=0) {
-                        printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.", Trans, TotalAmount);
-                    }
-                    break;
-                default:
-                    printf("Wrong input");
-            }
-        } else {
-            printf("You do not have sufficient Balance in your Account\n");
-        }
-    } else {
-        printf("INVALID TPIN\n");
-        invalidTpin();
-    }
-    }
-    else{
-        printf("Please Enter a valid Account Number\n");
-        invalidAccountNumber();
-    }
+    Transfer1();
 }
-void invalidAccountNumber(){
-    char accountNumber[10], confirmAccountNumber[10];
-    int Amount, tpin;
-    printf("Please Re-Enter your  10 Digit Account Number : ");
-    scanf("%s", accountNumber);
-     int len1 = strlen(accountNumber);
+void Transfer2(){
+    long long int f;
+        printf("Enter your choice number: ");
+    scanf("%d", &b);
+    switch(b){
+        case 1: case 2: case 3: case 4: case 5: case 6:
+            printf("\n Enter IFSC Code: ");
+    scanf("%lld", &f);
+    Transfer2();
+         break;
+         default :
+         printf("Please enter a valid choice Number");
+         Transfer1();
+    }
+void Transfer2(){
+     int tpin;
+     printf("Please Enter your  10 Digit Account Number : ");
+    scanf(" %[^\n]",AccountNumber);
+     int len1=strlen(AccountNumber);
      if(len1==10)
      {
-         printf("Confirm Your 10 Digit Account Number : ");
-         scanf("%s", confirmAccountNumber);
-         int len2 = strlen(confirmAccountNumber);
-         if(len2==10){
-         printf("Enter the Amount You Wish to transfer : ");
-         scanf("%d",&Amount);
-         printf("Enter Your TPIN: ");
-        scanf("%d", &tpin);
-        if(tpin==1234){
-            if(Amount<=TotalAmount){
-                TotalAmount=TotalAmount-Amount;
-                 printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.",Amount, TotalAmount);
-                    
-     }
-     else{
-         printf("You do not have sufficient Balance in your Account\n");
-     }
-        }
-     else{
-        printf("INCORRECT TPIN\n");
-         invalidTpin();
+        printf("Confirm Your 10 Digit Account Number : ");
+        scanf(" %[^\n]",ConfirmAccountNumber);
+         int len2 = strlen(ConfirmAccountNumber);
+         if(len2==10)
+         {
+             if(strcmp(AccountNumber,ConfirmAccountNumber)==0){
+                  printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",HolderName);
+                  printf("Enter the Amount You Wish to transfer : ");
+                   scanf("%lld",&Trans);
+                  printf("Enter Your TPIN: ");
+                   scanf("%d", &tpin);
+                   if(tpin==1234){
+                       if(Trans<=TotalAmount){
+                             TotalAmount=TotalAmount-Trans;
+                 printf("A/c 3XXXXX6925 debited by Rs.%lld \nTotal Bal:%lld \nNever share OTP/Password for EMI postponement or any reason.",Trans ,TotalAmount);
+                       }
+                       else{
+                            printf("You do not have sufficient Balance in your Account\n");
+                       }
+                   }
+                   else{
+                         printf("INCORRECT TPIN\n");
+                        Transfer3(); 
+                   }
+             }
+             else{
+                  printf("Account Number and Confirm Account Number are not same\n");
+                  Transfer2();
+             }
          }
+         else{
+               printf("Please Enter a Valid 10 Digit Confirm Account Number\n");
+      Transfer2();
          }
-     else{
-      printf("Please Enter a Valid 10 Digit Confirm Account Number\n");
-      invalidAccountNumber();
-     }
      }
      else{
-         printf("Please Enter a Valid 10 Digit Account Number\n");
-         invalidAccountNumber();
+           printf("Please Enter a Valid 10 Digit Account Number\n");
+         Transfer2();
      }
-         
+   
 }
-void invalidTpin() {
-    int tpin, g, h;
+}
+
+
+void Transfer3() {
+    int tpin;
     printf("Re-Enter Your TPIN: ");
     scanf("%d", &tpin);
+
     if (tpin == 1234) {
         if (Trans <= TotalAmount) {
             TotalAmount = TotalAmount - Trans;
-            printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.",Trans, TotalAmount);
+            printf("A/c 3XXXXX6925 debited by Rs.%lld \nTotal Bal:%lld\nNever share OTP/Password for EMI postponement or any reason.",Trans, TotalAmount);
         } else {
             printf("You do not have sufficient Balance in your Account\n");
         }
     } else {
         printf("INVALID TPIN\n");
-        invalidTpin();
+        Transfer3();
     }
 }
