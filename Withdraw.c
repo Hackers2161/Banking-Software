@@ -1,16 +1,19 @@
 void Withdraw() {
-    char accountNumber[10], confirmAccountNumber[10];
-    int len1, len2;
+    char accountNumber[11], ConfirmAccountNumber[11],holderName[100];
     printf("Enter your 10 Digit Account Number: ");
     scanf("%s", accountNumber);
     int len1 = strlen(accountNumber);
+
     if (len1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", confirmAccountNumber);
+        scanf("%s",confirmAccountNumber);
         int len2 = strlen(confirmAccountNumber);
+
         if (len1 == 10) {
             if (len2 == 10) {
-                if (strcmp(accountNumber, confirmAccountNumber) != 0) {
+                if (strcmp(accountNumber,ConfirmAccountNumber) == 0) {
+                       printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",holderName);
                     printf("Enter the Amount you want to Withdraw: ");
                     scanf("%d", &Amount);
                     TotalAmount = TotalAmount - Amount;
@@ -33,3 +36,4 @@ void Withdraw() {
         printf("Please Enter a Valid 10 digit Account Number\n");
         Withdraw();
     }
+}
