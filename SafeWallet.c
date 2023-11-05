@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <string.h>
-int Amount, TotalAmount = 1000000, Withd, Trans;
-long long int MN;
+long long int Depos, TotalAmount = 10000000, Withd,Trans;
+char AccountNumber[11], ConfirmAccountNumber[11],HolderName[100], MobileNumber[11];
+int b,c;
 void Deposit();   // Function prototype
 void Withdraw();   // Function prototype
-void Transfer();   // Function prototype
+void Transfer1();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
 void Exit();        // Function prototype
 int main() {
-    int n;
+    int a;
     printf("1. DEPOSIT AMOUNT\n");
     printf("2. WITHDRAW AMOUNT\n");
     printf("3. BANK TRANSFER\n");
@@ -18,18 +19,18 @@ int main() {
     printf("6. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
-    scanf("%d", &n);
-    if (n == 1)
+    scanf("%d", &a);
+    if (a == 1)
         Deposit();
-    else if (n == 2)
+    else if (a == 2)
         Withdraw();
-    else if (n == 3)
-        Transfer();
-    else if (n == 4)
+    else if (a == 3)
+        Transfer1();
+    else if (a == 4)
         Recharge();
-    else if (n == 5)
+    else if (a == 5)
         PayBills();
-    else if (n == 6)
+    else if (a == 6)
         Exit();
     else {
         printf("Wrong input\n");
@@ -39,30 +40,31 @@ int main() {
     }
     return 0;
 }
+
 void Transfer2();   // Function prototype
 void Transfer3();   // Function prototype
 void Recharge2();   // function prototype
 void Recharge3();   // function prototype
-void choicenum();    // function prototype
+void choicenum1();    // function prototype
 void choicenum2();    // function prototype
+
+
 void Deposit() {
-    int Amount, TotalAmount;
-    char str1[11], str2[11],str3[100];
     printf("Enter your 10 Digit Account Number: ");
-    scanf(" %[^\n]", str1);
-    int x1 = strlen(str1);
-    if (x1 == 10) {
+    scanf(" %[^\n]",AccountNumber);
+    int len1 = strlen(AccountNumber);
+    if (len1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-         scanf(" %[^\n]", str2);
-        int x2 = strlen(str2);
-            if (x2 == 10) {
-                if (strcmp(str1,str2) == 0) {
+         scanf(" %[^\n]", ConfirmAccountNumber);
+        int len2 = strlen(ConfirmAccountNumber);
+            if (len2 == 10) {
+                if (strcmp(AccountNumber,ConfirmAccountNumber) == 0) {
                     printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]",str3);
+        scanf(" %[^\n]",HolderName);
                     printf("Enter the Amount you want to Deposit: ");
-                    scanf("%d", &Amount);
-                    TotalAmount = TotalAmount + Amount;
-                    printf("A/c 3XXXXX6925 credited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n", Amount, TotalAmount);
+                    scanf("%lld", &Depos);
+                    TotalAmount = TotalAmount + Depos;
+                    printf("A/c 3XXXXX6925 credited by Rs. %lld \nTotal Bal: Rs. %lld\nNever share OTP/Password for EMI postponement or any reason.\n", Depos, TotalAmount);
                     printf("-------------------------------------------------------------\n");
                     main();
                 } else {
@@ -79,27 +81,23 @@ void Deposit() {
         Deposit();
     }
 }
-
 void Withdraw() {
-    char str1[11], str2[11], str3[100];
     printf("Enter your 10 Digit Account Number: ");
-    scanf("%s", str1);
-    int x1 = strlen(str1);
+    scanf(" %[^\n]",AccountNumber);
+    int len1 = strlen(AccountNumber);
 
-    if (x1 == 10) {
+    if (len1 == 10) {
         printf("Confirm your 10 Digit Account Number: ");
-        scanf("%s", str2);
-        int x2 = strlen(str2);
-
-        if (x1 == 10) {
-            if (x2 == 10) {
-                if (strcmp(str1, str2) == 0) {
+        scanf(" %[^\n]",ConfirmAccountNumber);
+        int len2 = strlen(ConfirmAccountNumber);
+            if (len2 == 10) {
+                if (strcmp(AccountNumber,ConfirmAccountNumber) == 0) {
                        printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]",str3);
+        scanf(" %[^\n]",HolderName);
                     printf("Enter the Amount you want to Withdraw: ");
-                    scanf("%d", &Amount);
-                    TotalAmount = TotalAmount - Amount;
-                    printf("A/c 3XXXXX6925 debited by Rs. %d \nTotal Bal: Rs. %d\nNever share OTP/Password for EMI postponement or any reason.\n", Amount, TotalAmount);
+                    scanf("%lld", &Withd);
+                    TotalAmount = TotalAmount - Withd;
+                    printf("A/c 3XXXXX6925 debited by Rs. %lld \nTotal Bal: Rs. %lld\nNever share OTP/Password for EMI postponement or any reason.\n", Withd, TotalAmount);
                     printf("-------------------------------------------------------------\n");
                     main();
                 } else {
@@ -114,12 +112,8 @@ void Withdraw() {
             printf("Please Enter a Valid 10 digit Confirm Account Number\n");
             Withdraw();
         }
-    } else {
-        printf("Please Enter a Valid 10 digit Account Number\n");
-        Withdraw();
-    }
 }
-void Transfer() {
+void Transfer1() {
     
     printf("Select Bank\n");
     printf("1. State Bank of India (SBI)\n");
@@ -128,104 +122,45 @@ void Transfer() {
     printf("4. HDFC Bank\n");
     printf("5. Union Bank of India\n");
     printf("6. Central Bank of India\n");
-    choicenum2();
-
+    Transfer1();
 }
-void choicenum2(){
-    int e, k;
+void Transfer2(){
     long long int f;
-    char str1[11],str2[11];
         printf("Enter your choice number: ");
-    scanf("%d", &e);
-    switch(e){
+    scanf("%d", &b);
+    switch(b){
         case 1: case 2: case 3: case 4: case 5: case 6:
             printf("\n Enter IFSC Code: ");
     scanf("%lld", &f);
-    printf("\n Enter your 10 Digit Account Number : ");
-scanf(" %[^\n]",str1);
-int x1=strlen(str1);
-if(x1==10){
-    printf("Confirm Your 10 Digit Account Number : ");
-   scanf(" %[^\n]",str2);
-    int x2=strlen(str2);
-    if(x2==0){
-        if(strcmp(str1,str2)==0){
-             printf("Enter the Amount you want to Transfer: ");
-        scanf("%d", &Trans);
-        printf("Enter Your TPIN: ");
-        scanf("%d",&k);
-        }
-        else{
-            printf("Account Number and Confirm Account Number are not the same\n");
-            Transfer3();
-        }
+    Transfer2();
+         break;
+         default :
+         printf("Please enter a valid choice Number");
+         Transfer1();
     }
-    else{
-      printf("Please Enter a Valid 10 Digit Confirm Account Number\n"); 
-      Transfer3();
-    }
-}
-else{
-    printf("Please Enter a Valid 10 Digit Account Number\n");
-    Transfer3();
-}
-if(k==1234){
-    if(Trans<=TotalAmount){
-       TotalAmount = TotalAmount - Trans;
-       switch(e){
-            case 1: case 2: case 3: case 4: case 5: case 6:
-            printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.", Trans, TotalAmount);
-       
-       break;
-       default:
-       printf("Wrong Input");
-    }
-    }
-    else{
-        printf("You do not have sufficient Balance in your Account\n");
-    }
-   
-}
-else{
-    printf("INVALID TPIN\n");
-        Transfer2();
-}
-break;
-default : 
-printf("Please Enter a valid choice Number\n");
-   choicenum2();
-    }
-
-}
-void choicenum(){
-    int n;
-    printf("Re-enter your choice number : ");
-    scanf("%d",&n);
-}
-void Transfer3(){
-     char str1[11],str2[11],str3[100];
-     int q,k;
-     printf("Please Re-Enter your  10 Digit Account Number : ");
-    scanf("%s",str1);
-     int x1=strlen(str1);
-     if(x1==10)
+void Transfer2(){
+     int tpin;
+     printf("Please Enter your  10 Digit Account Number : ");
+    scanf(" %[^\n]",AccountNumber);
+     int len1=strlen(AccountNumber);
+     if(len1==10)
      {
         printf("Confirm Your 10 Digit Account Number : ");
-         scanf("%s",str2);
-         int x2 = strlen(str2);
-         if(x2==10)
+        scanf(" %[^\n]",ConfirmAccountNumber);
+         int len2 = strlen(ConfirmAccountNumber);
+         if(len2==10)
          {
-             if(strcmp(str1,str2)==0){
+             if(strcmp(AccountNumber,ConfirmAccountNumber)==0){
                   printf("Enter Account Holder Name : ");
-        scanf(" %[^\n]",str3);
+        scanf(" %[^\n]",HolderName);
                   printf("Enter the Amount You Wish to transfer : ");
-                   scanf("%d",&q);
+                   scanf("%lld",&Trans);
                   printf("Enter Your TPIN: ");
-                   scanf("%d", &k);
-                   if(k==1234){
-                       if(q<=TotalAmount){
-                             TotalAmount=TotalAmount-q;
-                 printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d \nNever share OTP/Password for EMI postponement or any reason.",q,TotalAmount);
+                   scanf("%d", &tpin);
+                   if(tpin==1234){
+                       if(Trans<=TotalAmount){
+                             TotalAmount=TotalAmount-Trans;
+                 printf("A/c 3XXXXX6925 debited by Rs.%lld \nTotal Bal:%lld \nNever share OTP/Password for EMI postponement or any reason.",Trans ,TotalAmount);
                        }
                        else{
                             printf("You do not have sufficient Balance in your Account\n");
@@ -233,50 +168,52 @@ void Transfer3(){
                    }
                    else{
                          printf("INCORRECT TPIN\n");
-                        Transfer2(); 
+                        Transfer3(); 
                    }
              }
              else{
                   printf("Account Number and Confirm Account Number are not same\n");
-                  Transfer3();
+                  Transfer2();
              }
          }
          else{
                printf("Please Enter a Valid 10 Digit Confirm Account Number\n");
-      Transfer3();
+      Transfer2();
          }
      }
      else{
            printf("Please Enter a Valid 10 Digit Account Number\n");
-         Transfer3();
+         Transfer2();
      }
+   
+}
 }
 
-void Transfer2() {
-    int k, g, h;
-    printf("Re-Enter Your TPIN: ");
-    scanf("%d", &k);
 
-    if (k == 1234) {
+void Transfer3() {
+    int tpin;
+    printf("Re-Enter Your TPIN: ");
+    scanf("%d", &tpin);
+
+    if (tpin == 1234) {
         if (Trans <= TotalAmount) {
             TotalAmount = TotalAmount - Trans;
-            printf("A/c 3XXXXX6925 debited by Rs.%d \nTotal Bal:%d\nNever share OTP/Password for EMI postponement or any reason.",Trans, TotalAmount);
+            printf("A/c 3XXXXX6925 debited by Rs.%lld \nTotal Bal:%lld\nNever share OTP/Password for EMI postponement or any reason.",Trans, TotalAmount);
         } else {
             printf("You do not have sufficient Balance in your Account\n");
         }
     } else {
         printf("INVALID TPIN\n");
-        Transfer2();
+        Transfer3();
     }
 }
-
 void Recharge() {
     int d;
-    char str3[10];
+
     printf("Enter Mobile Number: ");
-    scanf("%s", str3);
-    int x3=strlen(str3);
-    if(x3==10){
+    scanf(" %[^\n]",MobileNumber);
+    int len3=strlen(MobileNumber);
+    if(len3==10){
     printf("\nSelect a Plan, e.g. 239 or 28 days\n");
     printf("1. ₹19    Validity- 1 Days     Data- 1.5GB\n");
     printf("2. ₹399   Validity- 28 Days    Data- 2GB/Day\n");
@@ -289,10 +226,9 @@ void Recharge() {
     scanf("%d", &d);
 
     switch (d) {
-        int c,x;
+        int e;
         case 1: case 2: case 3: case 4: case 5:
         case 6: case 7:
-            printf("PROCEED TO PAY\n");
              printf("Select an option to pay\n");
             printf("  1.Paytm UPI\n");
             printf("  2.Wallet / Postpaid\n");
@@ -300,10 +236,31 @@ void Recharge() {
             printf("  4.Net Banking\n"); 
             printf("Select an option to Pay : ");
             scanf("%d",&c);
-            switch(c){
+           Recharge3();
+            break;
+            default :
+            printf("Wrong Input\n");
+            printf("Please Select a Valid Plan Number\n");
+            Recharge();
+    }
+    }
+    else{
+        printf("Please Enter a valid Mobile Number\n");
+        Recharge();
+    }
+}
+
+void Recharge2(){
+     printf("Please Re-Enter your choice Number : ");
+     scanf("%d",&c);
+     Recharge3();
+}
+void Recharge3(){
+     switch(c){
+         int e;
                 case 1: 
                  printf("ENTER 4-DIGIT UPI PIN : ");
-                scanf("%d",&x);
+                scanf("%d",&e);
                 printf("\npayment Succefull");
                 break;
                 case 3:
@@ -328,106 +285,23 @@ void Recharge() {
     break;
           default :
           printf("Wrong input");
-                
+              Recharge2();  
                 
             }
-            break;
-            default :
-            printf("Wrong Input\n");
-            printf("Please Select a Valid Plan Number\n");
-            Recharge2();
-    }
-    }
-    else{
-        printf("Please Enter a valid Mobile Number\n");
-        Recharge();
-    }
-}
-
-void Recharge2(){
-    int n,c,x;
-    printf("Please Re-Enter your choice Number : ");
-    scanf("%d",&n);
-    switch (n) {
-        case 1: case 2: case 3: case 4: case 5: case 6: case 7:
-            printf("PROCEED TO PAY\n");
-            printf("Select an option to pay\n");
-            printf("  1.Paytm UPI\n");
-            printf("  2.Wallet / Postpaid\n");
-            printf("  3.Credit / Debit / ATM card\n");
-            printf("  4.Net Banking\n"); 
-            printf("Select an option to Pay : ");
-            scanf("%d",&c);
-            switch(c)
-            {
-                case 1:
-                printf("Pay Securely\n");
-                printf("ENTER 4-DIGIT UPI PIN");
-                scanf("%d",&x);
-                printf("\npayment Succefull");
-                break;
-                case 2:
-                break;
-                case 3:
-                long long int x1;
-                int x2,x3;
-                printf("Enter card Number : ");
-                scanf("%lld",&x1);
-                printf("\nEnter expiry / Validity : ");
-                scanf("%d",&x2);
-                printf("\n Enter CVV : ");
-                scanf("%d",&x3);
-                printf("\nPyment Succesfull");
-                break;
-                case 4:
-                 printf("Select Bank\n");
-    printf("1. State Bank of India (SBI)\n");
-    printf("2. ICICI Bank\n");
-    printf("3. Axis Bank\n");
-    printf("4. HDFC Bank\n");
-    printf("5. Union Bank of India\n");
-    printf("6. Central Bank of India\n");
-    break;
-                default :
-                printf("Wrong Input\n");
-                Recharge3();
-            }
-            
-            break;
-            default :
-            printf("Wrong Input\n");
-            Recharge2();
-    }
-            
-}
-void Recharge3(){
-    int x,n;
-     printf("Please Re-Enter your choice Number : ");
-     scanf("%d",&x);
-     switch(x){
-          case 1: case 2: case 3: case 4:
-                printf("Pay Securely");
-                printf("ENTER 4-DIGIT UPI PIN : ");
-                scanf("%d",&n);
-                printf("\npayment Succefull");
-                break;
-                default :
-                printf("Wrong Input\n");
-                Recharge3();
-     }
 }
 void PayBills() {
-    int a, b;
-    long long int c;
+    int a1, b1,n1,n2,d1,n3;
+    long long int e1;
+    long long int c1;
     printf("\n");
     printf("1. Electricity Bill Payment\n");
     printf("2. Water and Sewage Bill Payment\n");
     printf("3. Gas Cylinder Bill Payment\n");
     printf("------------------------------\n");
     printf("enter your choice number: ");
-    scanf("%d", &a);
+    scanf("%d", &a1);
 
-    if (a == 1) {
+    if (a1 == 1) {
         printf("1. Paschim Gujarat Vij Company Limited\n");
         printf("2. Madhya Gujarat Vij Company Limited\n");
         printf("3. Dasshin Gujarat Vij Company Limited\n");
@@ -435,16 +309,77 @@ void PayBills() {
         printf("5. Vaghani Energy Limited\n");
         printf("-------------------------------\n");
         printf("Select your electricity board name: ");
-        scanf("%d", &b);
-    }
-    switch (b) {
+        scanf("%d", &b1);
+    
+   
+    switch (b1) {
         case 1: case 2: case 3: case 4: case 5:
             printf("Please enter your 5 or 11 digit Consumer Number: ");
-            scanf("%lld", &c);
+            scanf("%lld", &c1);
             printf("PROCEED TO PAY");
             break;
         default:
             printf("Wrong Input");
+    }
+    }
+    if(a1==2){
+        printf("\n1. Vadodara Municipal Corporation\n");
+        printf("2. GRAMPANCHAYAT NEVARI\n");
+        printf("3. Grampanchayat Ambegaon\n");
+        printf("4. Grampanchayat Hingangaon Budruk\n");
+        printf("5. Grampanchayat Kheradewangi\n");
+        printf("6. Surat Municipal Corporation\n");
+        printf("\nSelect Your Water board : ");
+        scanf("%d",&n1);
+        switch(n1){
+            case 1:  case 2:  case 3:  case 4:  case 5:  case 6:
+             printf("Please enter your Customer ID: ");
+             scanf("%d",&d1);
+             printf("Please enter your customer Mobile : ");
+             scanf("%lld",&e1);
+             printf("PROCESSED TO PAY");
+             break;
+             default : 
+             printf("Wrong Input\n");
+             printf("Please Enter a valid choice Number\n");
+        }
+    }
+    if(a1==3){
+        printf("1. Bharat Gas\n");
+        printf("2. HP Gas\n");
+        printf("3. Bharat Gas - Commercial(NEW)\n");
+        printf("4. Indane Gas(Indian Oil)\n");
+        printf("\nSelect your Biller : ");
+        scanf("%d",&n2);
+        switch(n2){
+            case 1: case 2: case 3: case 4:
+            printf("1. Mobile Number\n");
+            printf("2. LPG ID\n");
+            printf("\nSelect Booking method : ");
+            scanf("%d",&n3);
+            switch(n3){
+                case 1:
+                int n5;
+                long long int n4;
+                printf("Please Enter Registered Contact Number : ");
+                scanf("%lld",&n4);
+                 printf("PROCESSED TO PAY");
+                break;
+                case 2:
+                printf("Please Enter a Valid LPG ID : ");
+                scanf("%d",&n5);
+                 printf("PROCESSED TO PAY");
+                 break;
+                 default: 
+                 printf("Please Enter a valid choice number ");
+                
+            }
+            break;
+            default:
+            printf("Wrong input");
+            
+        }
+        
     }
 }
 void Exit() {
