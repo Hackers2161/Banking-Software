@@ -2,12 +2,17 @@
 #include <string.h>
 long long int Depos, TotalAmount = 10000000, Withd,Trans;
 char AccountNumber[11], ConfirmAccountNumber[11],HolderName[100], MobileNumber[11];
+ int old_UPI_PIN,new_UPI_PIN,Confirm_UPI_PIN;
+
 int b,c;
 void Deposit();   // Function prototype
 void Withdraw();   // Function prototype
 void Transfer1();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
+void Change_UPI_PIN();  // function prototype
+void ApplyForNewDebitCard();     // function prototype
+void TransactionHistory();    // function prototype
 void Exit();        // Function prototype
 int main() {
     int a;
@@ -16,7 +21,10 @@ int main() {
     printf("3. BANK TRANSFER\n");
     printf("4. RECHARGE\n");
     printf("5. PAY BILLS\n");
-    printf("6. EXIT\n");
+    printf("6. Change UPI PIN\n");
+    printf("7. Apply For New Debit Card\n");
+    printf("8. Transactions History\n");
+    printf("9. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
     scanf("%d", &a);
@@ -30,7 +38,13 @@ int main() {
         Recharge();
     else if (a == 5)
         PayBills();
-    else if (a == 6)
+    else if(a==6)
+        Change_UPI_PIN();
+    else if(a==7)
+        ApplyForNewDebitCard();
+    else if(a==8)
+        TransactionHistory();
+    else if (a == 9)
         Exit();
     else {
         printf("Wrong input\n");
