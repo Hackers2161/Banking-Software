@@ -7,23 +7,23 @@ void Transfer1() {
     printf("4. HDFC Bank\n");
     printf("5. Union Bank of India\n");
     printf("6. Central Bank of India\n");
-    Transfer1();
+    Transfer2();
 }
 void Transfer2(){
     long long int f;
         printf("Enter your choice number: ");
     scanf("%d", &b);
-    switch(b){
-        case 1: case 2: case 3: case 4: case 5: case 6:
-            printf("\n Enter IFSC Code: ");
+   if(b<7){
+     printf("\n Enter IFSC Code: ");
     scanf("%lld", &f);
-    Transfer2();
-         break;
-         default :
-         printf("Please enter a valid choice Number");
-         Transfer1();
+    Transfer3();
+   }
+   else{
+       printf("Please enter a valid choice Number\n");
+       Transfer2();
+   }
     }
-void Transfer2(){
+void Transfer3(){
      int tpin;
      printf("Please Enter your  10 Digit Account Number : ");
     scanf(" %[^\n]",AccountNumber);
@@ -53,12 +53,12 @@ void Transfer2(){
                    }
                    else{
                          printf("INCORRECT TPIN\n");
-                        Transfer3(); 
+                        Transfer4(); 
                    }
              }
              else{
                   printf("Account Number and Confirm Account Number are not same\n");
-                  Transfer2();
+                  Transfer3();
              }
          }
          else{
@@ -68,14 +68,14 @@ void Transfer2(){
      }
      else{
            printf("Please Enter a Valid 10 Digit Account Number\n");
-         Transfer2();
+         Transfer3();
      }
    
 }
-}
 
 
-void Transfer3() {
+
+void Transfer4() {
     int tpin;
     printf("Re-Enter Your TPIN: ");
     scanf("%d", &tpin);
@@ -89,6 +89,6 @@ void Transfer3() {
         }
     } else {
         printf("INVALID TPIN\n");
-        Transfer3();
+        Transfer4();
     }
 }
