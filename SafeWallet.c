@@ -12,6 +12,7 @@ void Recharge();   // Function prototype
 void PayBills();   // Function prototype
 void Change_UPI_PIN();  // function prototype
 void ApplyForNewDebitCard();     // function prototype
+void TransactionHistory();    // function prototype
 void Exit();        // Function prototype
 int main() {
     int a;
@@ -22,7 +23,8 @@ int main() {
     printf("5. PAY BILLS\n");
     printf("6. Change UPI PIN\n");
     printf("7. Apply For New Debit Card\n");
-    printf("8. EXIT\n");
+    printf("8. Transactions History\n");
+    printf("9. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
     scanf("%d", &a);
@@ -36,11 +38,13 @@ int main() {
         Recharge();
     else if (a == 5)
         PayBills();
-        else if(a==6)
+    else if(a==6)
         Change_UPI_PIN();
-        else if(a==7)
+    else if(a==7)
         ApplyForNewDebitCard();
-    else if (a == 8)
+    else if(a==8)
+        TransactionHistory();
+    else if (a == 9)
         Exit();
     else {
         printf("Wrong input\n");
@@ -512,13 +516,16 @@ void ApplyForNewDebitCard(){
         ApplyForNewDebitCard();
     }
 }
-
-
-
-
-
-
-
-
-
-
+  void TransactionHistory(){
+      if(TotalAmount>10000000){
+          printf("Rs. %lld  Received from xyz  (30 Sep 2023) ",Depos);
+      }
+      else{
+          printf("Rs. %lld Paid to xyz (5 Oct 2023)",Trans);
+      }
+  }
+ 
+  
+  
+  
+  
