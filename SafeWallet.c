@@ -2,12 +2,15 @@
 #include <string.h>
 long long int Depos, TotalAmount = 10000000, Withd,Trans;
 char AccountNumber[11], ConfirmAccountNumber[11],HolderName[100], MobileNumber[11];
+ int old_UPI_PIN,new_UPI_PIN,Confirm_UPI_PIN;
+
 int b,c;
 void Deposit();   // Function prototype
 void Withdraw();   // Function prototype
 void Transfer1();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
+void Change_UPI_PIN();  // function prototype
 void Exit();        // Function prototype
 int main() {
     int a;
@@ -16,7 +19,8 @@ int main() {
     printf("3. BANK TRANSFER\n");
     printf("4. RECHARGE\n");
     printf("5. PAY BILLS\n");
-    printf("6. EXIT\n");
+    printf("6. Change UPI PIN\n");
+    printf("7. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
     scanf("%d", &a);
@@ -30,7 +34,9 @@ int main() {
         Recharge();
     else if (a == 5)
         PayBills();
-    else if (a == 6)
+        else if(a==6)
+        Change_UPI_PIN();
+    else if (a == 7)
         Exit();
     else {
         printf("Wrong input\n");
@@ -43,10 +49,12 @@ int main() {
 
 void Transfer2();   // Function prototype
 void Transfer3();   // Function prototype
+void Transfer4();   // Function prototype
 void Recharge2();   // function prototype
 void Recharge3();   // function prototype
 void choicenum1();    // function prototype
 void choicenum2();    // function prototype
+void Change_UPI_PIN2();  // function prototype
 
 
 void Deposit() {
@@ -122,23 +130,23 @@ void Transfer1() {
     printf("4. HDFC Bank\n");
     printf("5. Union Bank of India\n");
     printf("6. Central Bank of India\n");
-    Transfer1();
+    Transfer2();
 }
 void Transfer2(){
     long long int f;
         printf("Enter your choice number: ");
     scanf("%d", &b);
-    switch(b){
-        case 1: case 2: case 3: case 4: case 5: case 6:
-            printf("\n Enter IFSC Code: ");
+   if(b<7){
+     printf("\n Enter IFSC Code: ");
     scanf("%lld", &f);
-    Transfer2();
-         break;
-         default :
-         printf("Please enter a valid choice Number");
-         Transfer1();
+    Transfer3();
+   }
+   else{
+       printf("Please enter a valid choice Number\n");
+       Transfer2();
+   }
     }
-void Transfer2(){
+void Transfer3(){
      int tpin;
      printf("Please Enter your  10 Digit Account Number : ");
     scanf(" %[^\n]",AccountNumber);
@@ -168,12 +176,12 @@ void Transfer2(){
                    }
                    else{
                          printf("INCORRECT TPIN\n");
-                        Transfer3(); 
+                        Transfer4(); 
                    }
              }
              else{
                   printf("Account Number and Confirm Account Number are not same\n");
-                  Transfer2();
+                  Transfer3();
              }
          }
          else{
@@ -183,14 +191,14 @@ void Transfer2(){
      }
      else{
            printf("Please Enter a Valid 10 Digit Account Number\n");
-         Transfer2();
+         Transfer3();
      }
    
 }
-}
 
 
-void Transfer3() {
+
+void Transfer4() {
     int tpin;
     printf("Re-Enter Your TPIN: ");
     scanf("%d", &tpin);
@@ -204,7 +212,7 @@ void Transfer3() {
         }
     } else {
         printf("INVALID TPIN\n");
-        Transfer3();
+        Transfer4();
     }
 }
 void Recharge() {
@@ -382,6 +390,34 @@ void PayBills() {
         
     }
 }
+void Change_UPI_PIN(){
+   
+    printf("\n | UPI PIN will keep your account secure from unauthorized access. do not share this PIN with anyone. | \n");
+    printf("\nENTER 4-DIGIT OLD UPI PIN : ");
+    scanf("%d",&old_UPI_PIN);
+    if(old_UPI_PIN==1234){
+       Change_UPI_PIN2();
+    }
+    else{
+        printf("INVALID OLD UPI PIN\n");
+        printf("plese Re-Enter your UPI PIN\n");
+        Change_UPI_PIN2();
+    }
+   
+}
+ void Change_UPI_PIN2(){
+         printf("ENTER 4-DIGIT NEW UPI PIN : ");
+        scanf("%d",&new_UPI_PIN);
+         printf("CONFIRM 4-DIGIT NEW UPI PIN : ");
+        scanf("%d",&Confirm_UPI_PIN);
+        if(new_UPI_PIN==Confirm_UPI_PIN){
+            printf("UPI PIN updated Succesfully");
+        }
+        if(new_UPI_PIN!=Confirm_UPI_PIN){
+        printf("PIN didn't match\n");
+        Change_UPI_PIN2();
+        }
+    }
 void Exit() {
     printf("Thank You for Visiting");
 }
