@@ -1,9 +1,3 @@
-
-
-
-
-
-
 void PayBills() {
     int a1, b1,n1,n2,d1,n3;
     long long int e1;
@@ -96,7 +90,4 @@ void PayBills() {
         }
         
     }
-}
-void Exit() {
-    printf("Thank You for Visiting");
 }
