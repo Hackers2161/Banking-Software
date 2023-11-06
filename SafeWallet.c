@@ -11,6 +11,7 @@ void Transfer1();   // Function prototype
 void Recharge();   // Function prototype
 void PayBills();   // Function prototype
 void Change_UPI_PIN();  // function prototype
+void ApplyForNewDebitCard();     // function prototype
 void Exit();        // Function prototype
 int main() {
     int a;
@@ -20,7 +21,8 @@ int main() {
     printf("4. RECHARGE\n");
     printf("5. PAY BILLS\n");
     printf("6. Change UPI PIN\n");
-    printf("7. EXIT\n");
+    printf("7. Apply For New Debit Card\n");
+    printf("8. EXIT\n");
     printf("-----------------------\n");
     printf("Enter your choice number: ");
     scanf("%d", &a);
@@ -36,7 +38,9 @@ int main() {
         PayBills();
         else if(a==6)
         Change_UPI_PIN();
-    else if (a == 7)
+        else if(a==7)
+        ApplyForNewDebitCard();
+    else if (a == 8)
         Exit();
     else {
         printf("Wrong input\n");
@@ -421,3 +425,100 @@ void Change_UPI_PIN(){
 void Exit() {
     printf("Thank You for Visiting");
 }
+void ApplyForNewDebitCard(){
+    char NameOnCard[100], CardIssueAdd[200];
+    int tpin2;
+    printf("Enter you 10 Digit Account Number : ");
+    scanf(" %[^\n]",AccountNumber);
+    int len1=strlen(AccountNumber);
+    int n1,n2;
+    if(len1==10){
+       printf("Enter you 10 Digit  Confirm Account Number : ");
+    scanf(" %[^\n]",ConfirmAccountNumber);
+    int len2=strlen(ConfirmAccountNumber);
+    if(len2==10){
+     if (strcmp(AccountNumber,ConfirmAccountNumber) == 0){
+        printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",HolderName);
+        printf("Do You Want account holder name as name on the card?\n");
+        printf("if yes,  then Enter 1\n");
+        printf("otherwise  Enter 0\n");
+        printf("enter your choice : ");
+        scanf("%d",&n1);
+        if(n1==0){
+            printf("Enter Name that you want to be printed on card : ");
+            scanf(" %[^\n]",NameOnCard);
+            printf("Enter Card Issuance Address : ");
+            scanf(" %[^\n]",CardIssueAdd);
+            printf("----Select Card Type----\n");
+            printf("1. Rupay NCMC Platinum (PRS)\n");
+            printf("2. Visa Platinum Contactless\n");
+            printf("3. Rupay Select\n");
+            printf("Enter your choice Number : ");
+            scanf("%d",&n2);
+            switch(n2){
+                case 1: case 2: case 3:
+                 printf("Enter Transaction Password(TPIN) : ");
+            scanf("%d",&tpin2);
+             printf("you have Succefully Registred for Debit Card, you can Collect your Debit Card after 14 to 20 Working days from your respective bank \n");
+             printf("------------------------------------------------------\n");
+             main();
+            
+            break;
+            default : 
+            printf("Wrong Input");
+            }
+           
+        }
+        else if(n1==1){
+             printf("Enter Card Issuance Address : ");
+            scanf(" %[^\n]",CardIssueAdd);
+            printf("----Select Card Type----\n");
+            printf("1. Rupay NCMC Platinum (PRS)\n");
+            printf("2. Visa Platinum Contactless\n");
+            printf("3. Rupay Select\n");
+             printf("Enter your choice Number : ");
+            scanf("%d",&n2);
+            switch(n2){
+                case 1: case 2: case 3:
+                 printf("Enter Transaction Password(TPIN) : ");
+            scanf("%d",&tpin2);
+            printf("you have Succefully Registred for Debit Card, you can Collect your Debit Card after 14 to 20 Working days from your respective bank \n");
+              printf("------------------------------------------------------\n");
+            main();
+            break;
+            default : 
+            printf("Wrong Input");
+            }
+            
+          
+        }
+        else{
+            printf("Wrong Input");
+        }
+     }
+     else{
+         printf("Account Number and Confirm Account Number are not same\n");
+         ApplyForNewDebitCard(); 
+     }
+    }
+    else{
+      printf("Please Enter a Valid 10 digit  Confirm Account Number\n");
+        ApplyForNewDebitCard();  
+    }
+    }
+    else{
+        printf("Please Enter a Valid 10 digit Account Number\n");
+        ApplyForNewDebitCard();
+    }
+}
+
+
+
+
+
+
+
+
+
+
