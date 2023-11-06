@@ -1,14 +1,3 @@
-
-void Transfer2();   // Function prototype
-void Transfer3();   // Function prototype
-void Transfer4();   // Function prototype
-void Recharge2();   // function prototype
-void Recharge3();   // function prototype
-void choicenum1();    // function prototype
-void choicenum2();    // function prototype
-void Change_UPI_PIN2();  // function prototype
-
-
 void Deposit() {
     printf("Enter your 10 Digit Account Number: ");
     scanf(" %[^\n]",AccountNumber);
