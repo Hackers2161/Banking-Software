@@ -4,7 +4,9 @@ void ApplyForNewDebitCard(){
     printf("Enter you 10 Digit Account Number : ");
     scanf(" %[^\n]",AccountNumber);
     int len1=strlen(AccountNumber);
-    int n1,n2;
+    int name_on_card, card_choice;
+    //n1->name_on_card
+    //n2->card_choice
     if(len1==10){
        printf("Enter you 10 Digit  Confirm Account Number : ");
     scanf(" %[^\n]",ConfirmAccountNumber);
@@ -13,12 +15,10 @@ void ApplyForNewDebitCard(){
      if (strcmp(AccountNumber,ConfirmAccountNumber) == 0){
         printf("Enter Account Holder Name : ");
         scanf(" %[^\n]",HolderName);
-        printf("Do You Want account holder name as name on the card?\n");
-        printf("if yes,  then Enter 1\n");
-        printf("otherwise  Enter 0\n");
-        printf("enter your choice : ");
-        scanf("%d",&n1);
-        if(n1==0){
+        printf("Do You Want account holder name as name on the card?\nIf yes, enter 1\nIf no, enter 0");
+        printf("\nEnter your choice : ");
+        scanf("%d",&name_on_card);
+        if(name_on_card==0){
             printf("Enter Name that you want to be printed on card : ");
             scanf(" %[^\n]",NameOnCard);
             printf("Enter Card Issuance Address : ");
@@ -28,8 +28,8 @@ void ApplyForNewDebitCard(){
             printf("2. Visa Platinum Contactless\n");
             printf("3. Rupay Select\n");
             printf("Enter your choice Number : ");
-            scanf("%d",&n2);
-            switch(n2){
+            scanf("%d",&card_choice);
+            switch(card_choice){
                 case 1: case 2: case 3:
                  printf("Enter Transaction Password(TPIN) : ");
             scanf("%d",&tpin2);
@@ -43,7 +43,7 @@ void ApplyForNewDebitCard(){
             }
            
         }
-        else if(n1==1){
+        else if(name_on_card==1){
              printf("Enter Card Issuance Address : ");
             scanf(" %[^\n]",CardIssueAdd);
             printf("----Select Card Type----\n");
@@ -51,8 +51,8 @@ void ApplyForNewDebitCard(){
             printf("2. Visa Platinum Contactless\n");
             printf("3. Rupay Select\n");
              printf("Enter your choice Number : ");
-            scanf("%d",&n2);
-            switch(n2){
+            scanf("%d",&card_choice);
+            switch(card_choice){
                 case 1: case 2: case 3:
                  printf("Enter Transaction Password(TPIN) : ");
             scanf("%d",&tpin2);
