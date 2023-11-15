@@ -272,6 +272,8 @@ void Recharge2(){
      Recharge3();
 }
 void Recharge3(){
+  long long int x1;
+  int x2,x3;
      switch(c){
          int e;
                 case 1: 
@@ -280,8 +282,8 @@ void Recharge3(){
                 printf("\npayment Succefull");
                 break;
                 case 3:
-                long long int x1;
-                int x2,x3;
+                
+                
                 printf("Enter card Number : ");
                 scanf("%lld",&x1);
                 printf("\nEnter expiry / Validity : ");
@@ -373,10 +375,12 @@ void PayBills() {
             printf("2. LPG ID\n");
             printf("\nSelect Booking method : ");
             scanf("%d",&n3);
+            int n5;
+             long long int n4;
             switch(n3){
                 case 1:
-                int n5;
-                long long int n4;
+                
+               
                 printf("Please Enter Registered Contact Number : ");
                 scanf("%lld",&n4);
                  printf("PROCESSED TO PAY");
