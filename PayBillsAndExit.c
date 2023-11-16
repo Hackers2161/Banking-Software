@@ -1,10 +1,11 @@
 void PayBills() {
-    int bill_choice, elec_board_choice, n1,n2,d1,n3;
+    int bill_choice, elec_board_choice, mun_corp_choice,n2,d1,n3;
     //a1 -> bill_choice
     //b1 -> elec_board_choice
     //n1 -> mun_corp_choice
     long long int e1;
-    long long int c1;
+    long long int customer_num;
+    //c1 -> customer_num
     printf("\n");
     printf("1. Electricity Bill Payment\n");
     printf("2. Water and Sewage Bill Payment\n");
@@ -27,7 +28,7 @@ void PayBills() {
     switch (elec_board_choice) {
         case 1: case 2: case 3: case 4: case 5:
             printf("Please enter your 5 or 11 digit Consumer Number: ");
-            scanf("%lld", &c1);
+            scanf("%lld", &customer_num);
             printf("PROCEED TO PAY");
             break;
         default:
