@@ -1,8 +1,10 @@
 void PayBills() {
-    int bill_choice, elec_board_choice, mun_corp_choice,n2,d1,n3;
+    int bill_choice, elec_board_choice, mun_corp_choice, gas_biller,d1, gas_booking_method, lpg_id;
     //a1 -> bill_choice
     //b1 -> elec_board_choice
     //n1 -> mun_corp_choice
+    //n2 -> gas_biller
+    //n3 -> gas_booking_method
     long long int mobile_num;
     //e1 -> mobile_num
     long long int customer_num;
@@ -64,24 +66,22 @@ void PayBills() {
         printf("3. Bharat Gas - Commercial(NEW)\n");
         printf("4. Indane Gas(Indian Oil)\n");
         printf("\nSelect your Biller : ");
-        scanf("%d",&n2);
-        switch(n2){
+        scanf("%d",&gas_biller);
+        switch(gas_biller){
             case 1: case 2: case 3: case 4:
             printf("1. Mobile Number\n");
             printf("2. LPG ID\n");
             printf("\nSelect Booking method : ");
-            scanf("%d",&n3);
-            switch(n3){
+            scanf("%d",&gas_booking_method);
+            switch(gas_booking_method){
                 case 1:
-                int n5;
-                long long int n4;
                 printf("Please Enter Registered Contact Number : ");
                 scanf("%lld",&mobile_num);
                  printf("PROCESSED TO PAY");
                 break;
                 case 2:
                 printf("Please Enter a Valid LPG ID : ");
-                scanf("%d",&n5);
+                scanf("%d",&lpg_id);
                  printf("PROCESSED TO PAY");
                  break;
                  default: 
