@@ -3,7 +3,8 @@ void PayBills() {
     //a1 -> bill_choice
     //b1 -> elec_board_choice
     //n1 -> mun_corp_choice
-    long long int e1;
+    long long int mobile_num;
+    //e1 -> mobile_num
     long long int customer_num;
     //c1 -> customer_num
     printf("\n");
@@ -49,7 +50,7 @@ void PayBills() {
              printf("Please enter your Customer ID: ");
              scanf("%d",&d1);
              printf("Please enter your customer Mobile : ");
-             scanf("%lld",&e1);
+             scanf("%lld",&mobile_num);
              printf("PROCESSED TO PAY");
              break;
              default : 
@@ -75,7 +76,7 @@ void PayBills() {
                 int n5;
                 long long int n4;
                 printf("Please Enter Registered Contact Number : ");
-                scanf("%lld",&n4);
+                scanf("%lld",&mobile_num);
                  printf("PROCESSED TO PAY");
                 break;
                 case 2:
