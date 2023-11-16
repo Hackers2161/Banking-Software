@@ -1,5 +1,6 @@
 void PayBills() {
     int a1, b1,n1,n2,d1,n3;
+    //a1 -> bill_choice
     long long int e1;
     long long int c1;
     printf("\n");
@@ -10,7 +11,7 @@ void PayBills() {
     printf("enter your choice number: ");
     scanf("%d", &a1);
 
-    if (a1 == 1) {
+    if (bill_choice == 1) {
         printf("1. Paschim Gujarat Vij Company Limited\n");
         printf("2. Madhya Gujarat Vij Company Limited\n");
         printf("3. Dasshin Gujarat Vij Company Limited\n");
@@ -31,7 +32,7 @@ void PayBills() {
             printf("Wrong Input");
     }
     }
-    if(a1==2){
+    if(bill_choice==2){
         printf("\n1. Vadodara Municipal Corporation\n");
         printf("2. GRAMPANCHAYAT NEVARI\n");
         printf("3. Grampanchayat Ambegaon\n");
@@ -53,7 +54,7 @@ void PayBills() {
              printf("Please Enter a valid choice Number\n");
         }
     }
-    if(a1==3){
+    if(bill_choice==3){
         printf("1. Bharat Gas\n");
         printf("2. HP Gas\n");
         printf("3. Bharat Gas - Commercial(NEW)\n");
