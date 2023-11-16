@@ -1,6 +1,7 @@
 void PayBills() {
-    int a1, b1,n1,n2,d1,n3;
+    int bill_choice, elec_board_choice, n1,n2,d1,n3;
     //a1 -> bill_choice
+    //b1 -> elec_board_choice
     long long int e1;
     long long int c1;
     printf("\n");
@@ -9,7 +10,7 @@ void PayBills() {
     printf("3. Gas Cylinder Bill Payment\n");
     printf("------------------------------\n");
     printf("enter your choice number: ");
-    scanf("%d", &a1);
+    scanf("%d", &bill_choice);
 
     if (bill_choice == 1) {
         printf("1. Paschim Gujarat Vij Company Limited\n");
@@ -19,10 +20,10 @@ void PayBills() {
         printf("5. Vaghani Energy Limited\n");
         printf("-------------------------------\n");
         printf("Select your electricity board name: ");
-        scanf("%d", &b1);
+        scanf("%d", &elec_board_choice);
     
    
-    switch (b1) {
+    switch (elec_board_choice) {
         case 1: case 2: case 3: case 4: case 5:
             printf("Please enter your 5 or 11 digit Consumer Number: ");
             scanf("%lld", &c1);
