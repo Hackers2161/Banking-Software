@@ -2,6 +2,7 @@ void PayBills() {
     int bill_choice, elec_board_choice, n1,n2,d1,n3;
     //a1 -> bill_choice
     //b1 -> elec_board_choice
+    //n1 -> mun_corp_choice
     long long int e1;
     long long int c1;
     printf("\n");
@@ -35,14 +36,14 @@ void PayBills() {
     }
     if(bill_choice==2){
         printf("\n1. Vadodara Municipal Corporation\n");
-        printf("2. GRAMPANCHAYAT NEVARI\n");
+        printf("2. Ahmedabad Municipal Corporation\n");
         printf("3. Grampanchayat Ambegaon\n");
-        printf("4. Grampanchayat Hingangaon Budruk\n");
+        printf("4. Surat Municipal Corporation\n");
         printf("5. Grampanchayat Kheradewangi\n");
-        printf("6. Surat Municipal Corporation\n");
+        printf("6. Rajkot Municipal Corporation\n");
         printf("\nSelect Your Water board : ");
-        scanf("%d",&n1);
-        switch(n1){
+        scanf("%d",&mun_corp_choice);
+        switch(mun_corp_choice){
             case 1:  case 2:  case 3:  case 4:  case 5:  case 6:
              printf("Please enter your Customer ID: ");
              scanf("%d",&d1);
