@@ -22,6 +22,7 @@ void requirements();
 void details();
 void pin();
 void choiceinvalid();
+void uname();
 
 struct user 
 {
@@ -97,9 +98,8 @@ void choiceinvalid()
         
               case 2:
             printf("You selected option 2 (Access current account).\n");
-        printf("enter user name : ");
-        scanf(" %[^\n]",username);
-            pin();
+        
+           uname();
             break;
 
             default:
@@ -108,6 +108,29 @@ void choiceinvalid()
             break;
      }
 }
+
+
+void uname() {
+    char username[100];
+    int attempts = 0;
+
+    while(attempts < 3) {
+        printf("Enter your username: ");
+        scanf("%s", username);
+
+        if(strcmp(username, "hetal") == 0) {
+            pin();
+            return ;
+        } else {
+            printf("Incorrect username. Please try again.\n");
+            attempts++;
+        }
+    }
+
+    printf("You have exceeded the maximum number of attempts.\n");
+    return ;
+}
+
 bool vpin(int Apin)
 {
     return Apin == ppin ;
