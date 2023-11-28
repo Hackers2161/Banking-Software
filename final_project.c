@@ -340,7 +340,7 @@ void Transfer2();   // Function prototype
 void Transfer3();   // Function prototype
 void Transfer4();   // Function prototype
 void Recharge2();   // function prototype
-void Recharge3();   // function prototype
+int Recharge3();   // function prototype
 void choicenum1();    // function prototype
 void choicenum2();    // function prototype
 void Change_UPI_PIN2();  // function prototype
@@ -529,12 +529,11 @@ void Recharge() {
         case 6: case 7:
              printf("Select an option to pay\n");
             printf("  1.Paytm UPI\n");
-            printf("  2.Wallet / Postpaid\n");
-            printf("  3.Credit / Debit / ATM card\n");
-            printf("  4.Net Banking\n"); 
+            printf("  2.Credit / Debit / ATM card\n");
+            printf("  3.Net Banking\n"); 
             printf("Select an option to Pay : ");
             scanf("%d",&c);
-           Recharge3();
+           Recharge3(c);
             break;
             default :
             printf("Wrong Input\n");
@@ -553,7 +552,7 @@ void Recharge2(){
      scanf("%d",&c);
      Recharge3();
 }
-void Recharge3(){
+int Recharge3(int c){
   long long int x1;
   int x2,x3;
      switch(c){
@@ -563,7 +562,7 @@ void Recharge3(){
                 scanf("%d",&e);
                 printf("\npayment Succefull");
                 break;
-                case 3:
+                case 2:
                 
                 
                 printf("Enter card Number : ");
@@ -574,7 +573,7 @@ void Recharge3(){
                 scanf("%d",&x3);
                 printf("\nPyment Succesfull");
                 break;
-                case 4:
+                case 3:
                  printf("Select Bank\n");
     printf("1. State Bank of India (SBI)\n");
     printf("2. ICICI Bank\n");
@@ -582,13 +581,71 @@ void Recharge3(){
     printf("4. HDFC Bank\n");
     printf("5. Union Bank of India\n");
     printf("6. Central Bank of India\n");
+    printf("----------------------------\n");
+    printf("choice your bank : ");
+    scanf("%d",&c);
+     
+    switch(c){
+        case 1: case 2: case 3: case 4: case 5: case 6:
+        int tpin,Trans1=12000;
+     printf("Please Enter your  10 Digit Account Number : ");
+    scanf(" %[^\n]",AccountNumber);
+     int len1=strlen(AccountNumber);
+     if(len1==10)
+     {
+        printf("Confirm Your 10 Digit Account Number : ");
+        scanf(" %[^\n]",ConfirmAccountNumber);
+         int len2 = strlen(ConfirmAccountNumber);
+         if(len2==10)
+         {
+             if(strcmp(AccountNumber,ConfirmAccountNumber)==0){
+                  printf("Enter Account Holder Name : ");
+        scanf(" %[^\n]",HolderName);
+                  printf("Enter Your TPIN: ");
+                   scanf("%d", &tpin);
+                   if(tpin==1234){
+                       if(Trans1<=TotalAmount){
+                             TotalAmount=TotalAmount-Trans1;
+                 printf("\nA/c 3XXXXX6925 debited by Rs.%lld \nTotal Bal:%lld \nNever share OTP/Password for EMI postponement or any reason.",Trans ,TotalAmount);
+                 main2();
+                       }
+                       else{
+                            printf("You do not have sufficient Balance in your Account\n");
+                       }
+                   }
+                   else{
+                         printf("INCORRECT TPIN\n");
+                        Transfer4(); 
+                   }
+             }
+             else{
+                  printf("Account Number and Confirm Account Number are not same\n");
+                  Transfer3();
+             }
+         }
+         else{
+               printf("Please Enter a Valid 10 Digit Confirm Account Number\n");
+      Transfer3();
+         }
+     }
+     else{
+           printf("Please Enter a Valid 10 Digit Account Number\n");
+         Transfer3();
+     }
+   
+        break;
+        dafault :
+        printf("wrong input\n");
+    }
     break;
           default :
-          printf("Wrong input");
+          printf("Wrong input\n");
               Recharge2();  
                 
             }
+            return 0;
 }
+
 void PayBills() {
     int a1, b1,n1,n2,d1,n3;
     long long int e1;
